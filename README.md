@@ -52,6 +52,21 @@ Il programma installato è sempre lo stesso: la chiave decide quali funzioni si 
 
 ---
 
+## Sito del negozio (online)
+
+Il programma si collega al sito del negozio:
+
+- **Listino online** (`/listaprodotti`): tutti i prodotti con prezzo, prezzo scontato e disponibilità, riservato ai clienti registrati.
+- **IlMioMarket**: l'area personale del cliente con la **carta fedeltà** (codice a barre EAN-8), i punti, i dati del profilo e il carrello salvato. Alla registrazione, se il numero di carta esiste già, l'account viene collegato a quel cliente e ai suoi punti.
+- **Promozioni via email**: dal pannello si invia un avviso con le promozioni della giornata o un testo personalizzato, a tutti i clienti o solo ad alcuni.
+- **Clienti**: il negoziante vede i clienti registrati e la loro email e può assegnare una nuova password oppure chiederne il cambio al prossimo accesso.
+
+### Sincronizzazione clienti
+
+Nel programma apri **Clienti → ⚙️ Impostazioni sincronizzazione sito** e incolla il **token** che trovi nel pannello del sito in *Impostazioni → Sincronizzazione gestionale desktop* (l'indirizzo è già compilato). Poi premi **☁ Sincronizza Clienti dal sito**: il programma scarica i clienti iscritti online, aggiunge i nuovi e completa email e telefono di quelli già presenti. I punti accumulati in negozio non vengono mai modificati.
+
+Il token permette solo di leggere l'elenco clienti: non dà accesso alla cassa, alle licenze o agli altri dati del negozio.
+
 ## Primo avvio
 
 1. Installa con `AnDonioMarket_Setup.exe` (oppure apri `AnDonioMarket.exe`).
