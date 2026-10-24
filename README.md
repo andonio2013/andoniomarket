@@ -65,12 +65,14 @@ Il programma si collega al sito del negozio:
 
 La sincronizzazione funziona nei due sensi e parte anche da sola all'avvio del programma.
 
-Nel programma apri **Clienti → ⚙️ Impostazioni sincronizzazione sito** e incolla il **token** che trovi nel pannello del sito in *Impostazioni → Sincronizzazione gestionale desktop* (l'indirizzo è già compilato). Poi premi **☁ Sincronizza tutto col sito**:
+Nel programma apri **Clienti → ⚙️ Impostazioni sincronizzazione sito** e incolla il **token** che trovi nel pannello del sito in *Impostazioni → Sincronizzazione gestionale desktop* (pulsante **Copia token**; l'indirizzo è già compilato). Premi **Verifica collegamento**: deve rispondere «Collegamento riuscito» con il numero di clienti e prodotti del sito. Poi premi **☁ Sincronizza tutto col sito**:
 
 - dal sito arrivano i clienti iscritti online e i prodotti aggiunti dal pannello;
 - dal programma partono i clienti creati alla cassa, il saldo punti, i prezzi e le giacenze.
 
-I punti del gestionale sono la fonte: il sito applica solo le differenze, quindi i punti assegnati online non vengono mai azzerati. Il token permette solo di leggere e aggiornare clienti, punti e prodotti: non dà accesso alla cassa, alle licenze o agli altri dati del negozio.
+Nel campo **Indirizzo del sito** va solo l'indirizzo (per esempio `https://iltuosito.freebuff.page`): se incolli per errore un indirizzo che finisce con `/api/sync/...` il programma lo corregge da solo.
+
+I punti del gestionale sono la fonte: alla prima sincronizzazione i saldi online non vengono mai diminuiti (si può scegliere di sostituirli con quelli della cassa con l'opzione nella finestra), poi il sito applica solo le differenze, quindi i punti assegnati online non vengono mai azzerati. Il token permette solo di leggere e aggiornare clienti, punti e prodotti: non dà accesso alla cassa, alle licenze o agli altri dati del negozio.
 
 ## Primo avvio
 
