@@ -61,11 +61,16 @@ Il programma si collega al sito del negozio:
 - **Promozioni via email**: dal pannello si invia un avviso con le promozioni della giornata o un testo personalizzato, a tutti i clienti o solo ad alcuni.
 - **Clienti**: il negoziante vede i clienti registrati e la loro email e può assegnare una nuova password oppure chiederne il cambio al prossimo accesso.
 
-### Sincronizzazione clienti
+### Sincronizzazione con il sito
 
-Nel programma apri **Clienti → ⚙️ Impostazioni sincronizzazione sito** e incolla il **token** che trovi nel pannello del sito in *Impostazioni → Sincronizzazione gestionale desktop* (l'indirizzo è già compilato). Poi premi **☁ Sincronizza Clienti dal sito**: il programma scarica i clienti iscritti online, aggiunge i nuovi e completa email e telefono di quelli già presenti. I punti accumulati in negozio non vengono mai modificati.
+La sincronizzazione funziona nei due sensi e parte anche da sola all'avvio del programma.
 
-Il token permette solo di leggere l'elenco clienti: non dà accesso alla cassa, alle licenze o agli altri dati del negozio.
+Nel programma apri **Clienti → ⚙️ Impostazioni sincronizzazione sito** e incolla il **token** che trovi nel pannello del sito in *Impostazioni → Sincronizzazione gestionale desktop* (l'indirizzo è già compilato). Poi premi **☁ Sincronizza tutto col sito**:
+
+- dal sito arrivano i clienti iscritti online e i prodotti aggiunti dal pannello;
+- dal programma partono i clienti creati alla cassa, il saldo punti, i prezzi e le giacenze.
+
+I punti del gestionale sono la fonte: il sito applica solo le differenze, quindi i punti assegnati online non vengono mai azzerati. Il token permette solo di leggere e aggiornare clienti, punti e prodotti: non dà accesso alla cassa, alle licenze o agli altri dati del negozio.
 
 ## Primo avvio
 
