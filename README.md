@@ -58,6 +58,7 @@ Il programma si collega al sito del negozio:
 
 - **Listino online** (`/listaprodotti`): tutti i prodotti con prezzo, prezzo scontato e disponibilità, riservato ai clienti registrati.
 - **IlMioMarket**: l'area personale del cliente con la **carta fedeltà** (codice a barre EAN-8), i punti, i dati del profilo e il carrello salvato. Alla registrazione, se il numero di carta esiste già, l'account viene collegato a quel cliente e ai suoi punti.
+- **Ordini con ritiro**: il cliente ordina dal sito, riceve un codice a barre e lo mostra alla cassa; il negozio vede l'ordine nel pannello e lo segna pronto o ritirato.
 - **Promozioni via email**: dal pannello si invia un avviso con le promozioni della giornata o un testo personalizzato, a tutti i clienti o solo ad alcuni.
 - **Clienti**: il negoziante vede i clienti registrati e la loro email e può assegnare una nuova password oppure chiederne il cambio al prossimo accesso.
 
@@ -73,6 +74,77 @@ Nel programma apri **Clienti → ⚙️ Impostazioni sincronizzazione sito** e i
 Nel campo **Indirizzo del sito** va solo l'indirizzo (per esempio `https://iltuosito.freebuff.page`): se incolli per errore un indirizzo che finisce con `/api/sync/...` il programma lo corregge da solo.
 
 I punti del gestionale sono la fonte: alla prima sincronizzazione i saldi online non vengono mai diminuiti (si può scegliere di sostituirli con quelli della cassa con l'opzione nella finestra), poi il sito applica solo le differenze, quindi i punti assegnati online non vengono mai azzerati. Il token permette solo di leggere e aggiornare clienti, punti e prodotti: non dà accesso alla cassa, alle licenze o agli altri dati del negozio.
+
+## Ordini con ritiro in negozio
+
+Il cliente riempie il carrello su `/listaprodotti` e preme **Ordina e ritira in
+negozio**: riceve un codice (`ORD…`) con il suo codice a barre, lo trova anche in
+IlMioMarket e può mostrarlo dal telefono. Il negozio lo vede in **Ordini** nel
+pannello (e riceve una email) e può segnarlo *In preparazione* o *Pronto*: al
+cliente arriva l'avviso.
+
+Nella versione **Illimitato** basta scansionare il codice nella cassa: il
+gestionale carica da solo i prodotti e il cliente dell'ordine, così resta solo
+da premere **Emetti documento**. Dopo lo scontrino l'ordine passa a *Ritirato*,
+con il numero del documento. Se un prodotto non è più in catalogo viene segnalato
+e le altre righe si caricano comunque.
+
+## Etichette prezzo
+
+Da **Prodotti → 🏷️ Etichette prezzo (PDF A4)** si stampano cartellini con nome,
+prezzo, nome del negozio e codice a barre Code128, tre per riga su A4. Si può
+scegliere fra i prodotti selezionati, tutti o solo quelli sotto scorta minima, e
+quante copie per prodotto.
+
+## Backup sul sito
+
+In **Impostazioni & Backup → ☁️ Backup sul sito** il programma carica una volta al
+giorno lo stesso ZIP dei backup locali (dati, utenti, registro documenti — mai il
+file `.env`). Dal pannello web, *Impostazioni → Backup cloud*, si scarica l'ultimo
+file per ripristinarlo da **Ripristina da file…** se il PC si guasta. Il sito
+tiene gli ultimi 14 backup.
+
+## Coupon e tessera sul telefono
+
+In IlMioMarket il cliente vede la tessera anche come **QR** e i suoi **coupon**.
+Dal pannello, pagina *Coupon*, si creano coupon in euro o in percentuale e i
+coupon di compleanno (basta il compleanno nella scheda cliente, formato `MM-GG`).
+Alla cassa si scansiona il codice `CPN…` (o si usa **🎟️ Applica coupon**): lo
+sconto viene applicato subito e il coupon risulta usato sullo scontrino. Dalla
+stessa pagina si possono anche far scadere i punti dei clienti inattivi, con
+anteprima prima di confermare.
+
+## Fattura ai clienti azienda
+
+Nella scheda cliente si annotano **P.IVA / C.F.** e **compleanno**. In cassa, con
+un cliente selezionato, la casella **📄 Emetti fattura** produce un documento
+intestato *FATTURA* con la partita IVA del cliente e numerazione propria
+(`1/2026`, `2/2026`, …); la numerazione riparte da 1 ogni anno. Il riepilogo IVA
+per il commercialista resta in **Statistiche → Esporta report**.
+
+## Compleanni e coupon
+
+In **Clienti** ogni scheda ha la **data di compleanno** (visibile anche
+nell'elenco). Il cliente può aggiungerla da solo registrandosi al sito oppure
+dalla sua area personale. Il giorno del compleanno il sito crea in automatico un
+coupon con lo sconto impostato dal negozio (in euro o in percentuale) e lo invia
+per email al cliente; in cassa basta scansionare il codice `CPN…` e lo sconto si
+applica da solo, al banco come in IlMioMarket.
+
+## Offerte del giorno
+
+Nella scheda **Offerte** del pannello scegli un volta i prodotti che possono
+andare in sconto, quanti al giorno e l'intervallo di percentuale. Ogni giorno,
+dopo l'ora impostata (di base le 10:00), il sistema pesca a caso quei prodotti,
+applica una percentuale e crea un codice `OFF…`: mostralo in cassa e il prezzo
+scontato viene applicato solo a quei prodotti, per quella vendita.
+
+## Backup su Google Drive
+
+Il programma salva una copia dei dati all'apertura e poi ogni 15 minuti nella
+cartella **Il mio Drive → AnDonio Market Backup**, dentro una sottocartella nuova
+con data e ora (`25-10-2026_14-32-05`): nessun backup precedente viene mai
+sovrascritto. Si accende o spegne da **Impostazioni & Backup**.
 
 ## Primo avvio
 
