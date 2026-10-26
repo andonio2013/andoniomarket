@@ -2,7 +2,7 @@
 
 **Gestionale di cassa per negozi** — funziona su Windows, senza installare Python e senza Internet (tranne la prima attivazione della licenza).
 
-Cassa, catalogo prodotti, magazzino, clienti e punti fedeltà, scontrini in PDF, backup automatici: tutto in un unico programma.
+Cassa, catalogo prodotti, magazzino, clienti e punti fedeltà, scontrini in PDF, self-checkout, riconoscimento del volto per la tessera, backup automatici: tutto in un unico programma.
 
 ---
 
@@ -145,6 +145,29 @@ Il programma salva una copia dei dati all'apertura e poi ogni 15 minuti nella
 cartella **Il mio Drive → AnDonio Market Backup**, dentro una sottocartella nuova
 con data e ora (`25-10-2026_14-32-05`): nessun backup precedente viene mai
 sovrascritto. Si accende o spegne da **Impostazioni & Backup**.
+
+## Self-checkout
+
+Dalla barra in alto premi **🛒 Self-checkout**: si apre una schermata sola, a
+tutto schermo, pensata per il cliente. Ci sono solo i prodotti (ricerca o
+scansione con la fotocamera), il carrello, il riconoscimento del volto per la
+tessera fedeltà, il **ritiro di un ordine** fatto dal sito, l'anteprima dello
+scontrino e il pulsante per emetterlo.
+
+Per uscire serve il **PIN di un amministratore**: il cliente non può chiudere
+la postazione né tornare al gestionale completo.
+
+## Riconoscimento del volto
+
+In **Impostazioni → 🙂 Riconoscimento volto clienti** puoi registrare il volto
+di un cliente (una quindicina di foto dalla webcam) e poi alla cassa basta
+premere **🙂 Riconosci cliente dal volto**: il cliente e i suoi punti fedeltà
+vengono selezionati da soli, senza digitare il codice della tessera.
+
+Le foto restano solo su quel computer, nella cartella `data\volti`, e non
+vengono mai inviate a Internet. Se un cliente viene riconosciuto troppo spesso
+o troppo poco, si regola la **soglia** dalle stesse impostazioni (30 = severa,
+130 = permissiva).
 
 ## Primo avvio
 
