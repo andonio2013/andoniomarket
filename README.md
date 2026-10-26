@@ -164,7 +164,13 @@ Dalla barra in alto premi **🛒 Self-checkout**: si apre una schermata sola, a
 tutto schermo, pensata per il cliente. Ci sono solo i prodotti (ricerca o
 scansione con la fotocamera, anche dal telefono con Iriun Webcam), il carrello,
 il riconoscimento del volto per la tessera fedeltà, il **ritiro di un ordine**
-fatto dal sito, l'anteprima dello scontrino e il pulsante per emetterlo.
+fatto dal sito, la scelta del **metodo di pagamento** (carta o contanti, con
+l'importo ricevuto e il resto), l'anteprima dello scontrino e il pulsante per
+emetterlo.
+
+I pulsanti sono grandi e restano sempre visibili anche sugli schermi piccoli;
+i messaggi (peso, PIN, errori, scontrino emesso) compaiono sopra la postazione
+e non dietro la finestra principale.
 
 Per uscire serve il **PIN di un amministratore**: il cliente non può chiudere
 la postazione né tornare al gestionale completo.
