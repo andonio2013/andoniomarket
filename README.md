@@ -133,11 +133,23 @@ applica da solo, al banco come in IlMioMarket.
 
 ## Offerte del giorno
 
-Nella scheda **Offerte** del pannello scegli un volta i prodotti che possono
-andare in sconto, quanti al giorno e l'intervallo di percentuale. Ogni giorno,
-dopo l'ora impostata (di base le 10:00), il sistema pesca a caso quei prodotti,
-applica una percentuale e crea un codice `OFF…`: mostralo in cassa e il prezzo
-scontato viene applicato solo a quei prodotti, per quella vendita.
+Nella scheda **Offerte** del pannello decidi tutto: quante offerte al giorno
+(fino a nove), l'ora, i prodotti e l'intervallo di sconto. Ogni offerta ha la
+sua regola indipendente: percentuale oppure importo fisso in euro, prodotti
+scelti, peso manuale per la vendita a peso, quantità, scadenza e interruttore
+per accenderla o spegnerla. Con Ctrl/Shift puoi selezionarne più di una e
+attivarle, disattivarle o dare la stessa scadenza in un colpo solo.
+
+Dopo l'ora impostata (di base le 10:00) il sistema genera da solo le offerte e
+crea un codice `OFF…` per ciascuna. Se l'invio email è attivo, i clienti
+iscritti ricevono l'elenco in automatico, anche se nessuno apre il pannello o
+la cassa. Alla cassa si scansiona il codice e lo sconto si applica solo a quei
+prodotti, per quella vendita, finché l'offerta non è scaduta.
+
+Le nove regole, l'ora, i prodotti e tutte le impostazioni di sconto sono
+sincronizzate **a due vie** tra la dashboard e il gestionale: vince l'ultima
+modifica, e ciò che è possibile allineare con Loyverse (prodotti, prezzi,
+clienti e scontrini) viaggia con la stessa sincronizzazione.
 
 ## Backup su Google Drive
 
