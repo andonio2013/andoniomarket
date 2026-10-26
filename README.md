@@ -2,7 +2,7 @@
 
 **Gestionale di cassa per negozi** — funziona su Windows, senza installare Python e senza Internet (tranne la prima attivazione della licenza).
 
-Cassa, catalogo prodotti, magazzino, clienti e punti fedeltà, scontrini in PDF, self-checkout, riconoscimento del volto per la tessera, backup automatici: tutto in un unico programma.
+Cassa, catalogo prodotti, magazzino, clienti e punti fedeltà, scontrini in PDF, self-checkout, riconoscimento del volto per la tessera, bacheca "Oggi" con compleanni e scorte, inventario con scanner, conteggio cassa guidato, backup automatici: tutto in un unico programma.
 
 ---
 
@@ -10,7 +10,7 @@ Cassa, catalogo prodotti, magazzino, clienti e punti fedeltà, scontrini in PDF,
 
 | File | A cosa serve |
 |---|---|
-| **[AnDonioMarket_Setup.exe](https://github.com/andonio2013/andoniomarket/raw/main/AnDonioMarket_Setup.exe)** — 94 MB | Installer per Windows — **consigliato**. Installa il programma per l'utente corrente (non servono permessi di amministratore), crea i collegamenti nel menu Start e sul Desktop e, se trova una cartella con i dati di AnDonio Market, può importarli. |
+| **[AnDonioMarket_Setup.exe](https://github.com/andonio2013/andoniomarket/raw/main/AnDonioMarket_Setup.exe)** — 95 MB | Installer per Windows — **consigliato**. Installa il programma per l'utente corrente (non servono permessi di amministratore), crea i collegamenti nel menu Start e sul Desktop e, se trova una cartella con i dati di AnDonio Market, può importarli. |
 | **[AnDonioMarket.exe](https://github.com/andonio2013/andoniomarket/raw/main/AnDonioMarket.exe)** — 92 MB | Versione **portable**: un solo file, non si installa. Mettilo in una cartella e fai doppio clic. Crea i propri dati accanto a sé. |
 
 Requisiti: Windows 10 o 11 a 64 bit, connessione a Internet per la prima attivazione.
