@@ -150,9 +150,9 @@ sovrascritto. Si accende o spegne da **Impostazioni & Backup**.
 
 Dalla barra in alto premi **🛒 Self-checkout**: si apre una schermata sola, a
 tutto schermo, pensata per il cliente. Ci sono solo i prodotti (ricerca o
-scansione con la fotocamera), il carrello, il riconoscimento del volto per la
-tessera fedeltà, il **ritiro di un ordine** fatto dal sito, l'anteprima dello
-scontrino e il pulsante per emetterlo.
+scansione con la fotocamera, anche dal telefono con Iriun Webcam), il carrello,
+il riconoscimento del volto per la tessera fedeltà, il **ritiro di un ordine**
+fatto dal sito, l'anteprima dello scontrino e il pulsante per emetterlo.
 
 Per uscire serve il **PIN di un amministratore**: il cliente non può chiudere
 la postazione né tornare al gestionale completo.
@@ -163,6 +163,10 @@ In **Impostazioni → 🙂 Riconoscimento volto clienti** puoi registrare il vol
 di un cliente (una quindicina di foto dalla webcam) e poi alla cassa basta
 premere **🙂 Riconosci cliente dal volto**: il cliente e i suoi punti fedeltà
 vengono selezionati da soli, senza digitare il codice della tessera.
+
+Funziona con la webcam del PC oppure con **Iriun Webcam**: apri l'app sul
+telefono, collegalo alla stessa Wi-Fi del computer e il programma trova e usa
+"Iriun Webcam" da solo (lo stesso vale per Camo Studio e DroidCam).
 
 Le foto restano solo su quel computer, nella cartella `data\volti`, e non
 vengono mai inviate a Internet. Se un cliente viene riconosciuto troppo spesso
