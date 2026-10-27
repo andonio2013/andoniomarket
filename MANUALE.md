@@ -113,6 +113,11 @@ coupon.
 - **🎲 Biglietto fortunato** — uno sconto a sorpresa sulla vendita.
 - I **premi del Gratta&Vinci** sono coupon come gli altri: il cliente ti mostra
   il codice `CPN…` e lo sconto si applica da solo.
+- **Codici creati online**: se scrivi o scansiona un codice `BUO…`, `GRA…` o
+  `CPN…` che la cassa non ha ancora ricevuto con la sincronizzazione, il
+  programma lo chiede al sito e lo applica subito. Non serve far rifare il
+  codice al cliente né ricaricare la pagina del pannello. Il saldo dei buoni e
+  i premi consegnati restano allineati da sole due parti.
 
 ### Ritiro di un ordine del sito
 
@@ -360,6 +365,12 @@ l'ultima modifica, da qualunque parte sia stata fatta.
   applicano in cassa scansionandoli.
 - **Buoni regalo** (`BUO…`): si vendono con un importo, hanno un saldo che
   scala a ogni uso e una scadenza.
+- **Tutti i codici valgono in entrambi i posti**: un codice creato nel pannello
+  web (coupon di compleanno, buono regalo, premio del Gratta&Vinci) funziona
+  anche nella cassa del programma desktop e viceversa. Basta scriverlo o
+  scansionarlo: se non è già arrivato con la sincronizzazione, la cassa lo
+  legge dal sito al momento. Il saldo dei buoni e i premi già consegnati non si
+  possono usare due volte.
 - **Punti fedeltà**: si accumulano alla cassa (1 punto per euro, configurabile),
   si possono spendere come sconto e si vedono nell'area del cliente.
 - **Referral**: chi invita un amico prende punti, chi si iscrive con il codice
