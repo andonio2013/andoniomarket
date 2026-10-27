@@ -15,6 +15,8 @@ Cassa, catalogo prodotti, magazzino, clienti e punti fedeltà, scontrini in PDF,
 
 Requisiti: Windows 10 o 11 a 64 bit, connessione a Internet per la prima attivazione.
 
+📘 **Manuale utente completo** (con immagini): [MANUALE.md](MANUALE.md) — spiega passo per passo la cassa, il pannello online, le offerte, i coupon, il self-checkout, il gratta e vinci e gli appuntamenti.
+
 ---
 
 ## Licenza
@@ -74,6 +76,10 @@ Nel programma apri **Clienti → ⚙️ Impostazioni sincronizzazione sito** e i
 Nel campo **Indirizzo del sito** va solo l'indirizzo (per esempio `https://iltuosito.freebuff.page`): se incolli per errore un indirizzo che finisce con `/api/sync/...` il programma lo corregge da solo.
 
 I punti del gestionale sono la fonte: alla prima sincronizzazione i saldi online non vengono mai diminuiti (si può scegliere di sostituirli con quelli della cassa con l'opzione nella finestra), poi il sito applica solo le differenze, quindi i punti assegnati online non vengono mai azzerati. Il token permette solo di leggere e aggiornare clienti, punti e prodotti: non dà accesso alla cassa, alle licenze o agli altri dati del negozio.
+
+**Il codice cliente è quello della cassa.** Ogni cliente ha un *codice cliente* (quello che si digita o si scansiona al banco). Quello impostato nel gestionale è l'unico valido: la sincronizzazione lo porta al sito e lo riporta al gestionale, quindi dopo un allineamento non si vedono più codici diversi fra pannello, sito e cassa. Se due programmi hanno lo stesso cliente, vince il codice del gestionale.
+
+**Cosa viaggia nella sincronizzazione** (a due vie, ogni volta che si apre il programma, ogni 15 minuti e a richiesta): prodotti, prezzi e giacenze, clienti con compleanno e codice, punti fedeltà, coupon (compresi quelli di compleanno), offerte del giorno con le loro regole, scontrini e registro attività del desktop, ordini con ritiro, appuntamenti richiesti dal sito e partite di gratta e vinci. Per ogni voce vince la modifica più recente; le cancellazioni non vengono mai riportate indietro.
 
 ## Ordini con ritiro in negozio
 
@@ -150,6 +156,40 @@ Le nove regole, l'ora, i prodotti e tutte le impostazioni di sconto sono
 sincronizzate **a due vie** tra la dashboard e il gestionale: vince l'ultima
 modifica, e ciò che è possibile allineare con Loyverse (prodotti, prezzi,
 clienti e scontrini) viaggia con la stessa sincronizzazione.
+
+## Appuntamenti in negozio (`/prenota`)
+
+Nel sito c'è la pagina **/prenota**: il cliente sceglie giorno e ora, scrive cosa
+vuole discutere (un prodotto da ordinare, un preventivo, un problema) e invia la
+richiesta. Serve l'accesso, così la richiesta arriva già con nome, email e
+telefono e il negozio può rispondere.
+
+Il negoziante vede le richieste in **Appuntamenti**, sia nel pannello del sito
+sia nel gestionale desktop (anche in versione Licenza), e può fissare l'appuntamento,
+segarlo come *Fatto*, *Annullato* o *Non presentato* e rispondere al cliente
+(la risposta parte per email). Le richieste in attesa sono evidenziate con un
+avviso all'apertura del programma; gli appuntamenti sono sincronizzati fra sito e
+gestionale insieme a tutto il resto.
+
+## Gratta e vinci online (`/grattasubito`)
+
+In **/grattasubito** il cliente registrato trova il suo gratta e vinci: tocca le
+caselle, scopre il risultato e, se vince, riceve un premio. **Serve l'accesso**
+per giocare: senza login il pulsante resta bloccato e la pagina invita a
+registrarsi.
+
+Il negoziante decide tutto da **Gratta e vinci** (pannello online e gestionale
+desktop): se attivare il gioco, quanti gratta al giorno per ogni cliente (o il
+valore generale per tutti), quali premi esistono (sconto in euro, sconto in
+percentuale, omaggio), il valore di ciascun premio, le probabilità di vittoria, il
+numero di caselle e i giorni di validità del premio. Il cliente può fare un solo
+gratta al giorno per ogni livello di premio.
+
+I premi vinti diventano **tagliandi** con un codice `GRA…`: il cliente li vede in
+IlMioMarket e alla cassa si digita o si scansiona il codice, così lo sconto si
+applica da solo e il tagliando risulta utilizzato sullo scontrino (non si può
+usare due volte). Le impostazioni e i premi sono sincronizzati a due vie, quindi
+valgono allo stesso modo sul sito e al banco.
 
 ## Backup su Google Drive
 
