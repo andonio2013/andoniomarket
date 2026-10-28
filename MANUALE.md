@@ -391,10 +391,15 @@ l'ultima modifica, da qualunque parte sia stata fatta.
 
 ## 7-bis. Il cervello del negozio: previsioni, riordino, regole, missioni, turni
 
-Nel pannello web c'è la voce **Cervello** (nella barra a sinistra, icona 🧠). È
-un unico posto con quattro schede: tutto quello che imposti lì vale **subito**
-per la cassa web e per il gestionale desktop, perché le regole vivono sul
-server e non in una copia locale.
+Nel pannello web c'è la voce **Cervello** (nella barra a sinistra, icona 🧠) e
+nel gestionale desktop c'è la scheda **🧠 Cervello**: sono lo stesso pannello,
+con quattro schede, e lavorano sugli stessi dati del sito.
+
+Tutto quello che imposti lì vale **subito** per la cassa web e per la cassa del
+gestionale desktop, perché le regole vivono sul server e non in una copia
+locale. Nel desktop la scheda ha bisogno del collegamento al sito (Clienti →
+⚙️ Impostazioni sincronizzazione sito, incolla il token): senza token la cassa
+continua a funzionare con le regole locali e la scheda lo dice chiaramente.
 
 ### Previsioni e riordino
 

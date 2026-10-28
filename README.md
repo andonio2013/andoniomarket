@@ -178,9 +178,11 @@ veri del negozio.
 - **Turni e chiusura Z**: timbratura entrata/uscita e report per operatore con
   scontrini, incasso, contanti, sconti, annullati e ore lavorate.
 
-Regole e missioni stanno sul server, quindi valgono per la cassa del pannello
-web; le impostazioni restano le stesse che arrivano al gestionale con la
-sincronizzazione.
+Regole e missioni stanno sul server, quindi valgono sia per la cassa del
+pannello web sia per la cassa del gestionale desktop: l'app ha la stessa scheda
+**🧠 Cervello** e, appena il carrello cambia, chiede al sito quali sconti
+automatici valgono per quella spesa. Senza collegamento al sito il programma
+continua a vendere con le regole locali e la scheda lo segnala.
 
 ## Appuntamenti in negozio (`/prenota`)
 
