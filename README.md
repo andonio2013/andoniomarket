@@ -157,6 +157,31 @@ sincronizzate **a due vie** tra la dashboard e il gestionale: vince l'ultima
 modifica, e ciò che è possibile allineare con Loyverse (prodotti, prezzi,
 clienti e scontrini) viaggia con la stessa sincronizzazione.
 
+## Il cervello del negozio
+
+Nel pannello c'è la sezione **Cervello**: quattro strumenti che lavorano sui dati
+veri del negozio.
+
+- **Previsioni e riordino**: per ogni prodotto la media venduta al giorno sugli
+  ultimi 28 giorni, i giorni di copertura delle scorte, la quantità da ordinare
+  (14 giorni più la scorta minima) e lo stato *esaurito / urgente / esaurimento /
+  ok*. Il riordino è già diviso per fornitore, con il totale a costo d'acquisto e
+  il pulsante per registrare l'ordine.
+- **Regole sconto automatiche**: percentuale, 3×2, 2×1, bundle e scaglioni, con
+  prodotti, categorie, giorni della settimana, **fascia oraria**, periodo di
+  validità e priorità. Non serve digitare codici: la cassa applica la regola da
+  sola e lo sconto compare sullo scontrino come `CODICE AUTO`. Una regola con
+  fascia `18:00`–`23:59` è, per esempio, lo sconto anti-spreco della sera.
+- **Missioni cliente**: obiettivi per periodo (tre visite in una settimana, una
+  spesa minima nel mese, un certo numero di punti) con premio in punti accreditato
+  una volta sola al raggiungimento della soglia.
+- **Turni e chiusura Z**: timbratura entrata/uscita e report per operatore con
+  scontrini, incasso, contanti, sconti, annullati e ore lavorate.
+
+Regole e missioni stanno sul server, quindi valgono per la cassa del pannello
+web; le impostazioni restano le stesse che arrivano al gestionale con la
+sincronizzazione.
+
 ## Appuntamenti in negozio (`/prenota`)
 
 Nel sito c'è la pagina **/prenota**: il cliente sceglie giorno e ora, scrive cosa
