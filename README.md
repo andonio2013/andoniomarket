@@ -231,6 +231,43 @@ vengono mai inviate a Internet. Se un cliente viene riconosciuto troppo spesso
 o troppo poco, si regola la **soglia** dalle stesse impostazioni (30 = severa,
 130 = permissiva).
 
+## Ruoli con limiti e seconda cassa
+
+Ogni cassiere può avere i suoi **permessi** (vendere, sconti, resi, resoconti,
+prodotti…) e **due limiti numerici**: sconto massimo applicabile e importo
+massimo del singolo documento. Se esiste anche il limite del negozio vale il più
+basso dei due; l'amministratore non ha limiti.
+
+Per una **seconda cassa** (altro PC o tablet) dal pannello web apri *Casse
+collegate* e crea una postazione scegliendo il cassiere: ottieni un **codice di
+sei caratteri** da digitare sull'altra postazione in *🔗 Collega questa cassa con
+un codice*. Quella cassa lavora come quel cassiere, con i suoi permessi e i suoi
+limiti. Le stesse funzioni sono anche nel programma desktop (**🖧 Casse
+collegate**), e quello che fai da una parte si vede dall'altra.
+
+## Reparti, fornitori, livelli fedeltà
+
+Nelle impostazioni del sito imposti **reparti** (categorie), **fornitori**
+(nome, telefono, email) e **livelli fedeltà**: nome del livello, punti a cui
+scatta, moltiplicatore dei punti e sconto. Da *Prodotti* vedi anche il **prezzo
+di acquisto** e il **margine** di ogni articolo. Tutto arriva al programma
+desktop con la sincronizzazione.
+
+## Consegna a domicilio ed email automatiche
+
+La **consegna** si accende dal pannello con costo, soglia per la gratuità,
+raggio, fasce orarie, giorni e una nota per il cliente. Le **email automatiche**
+sono tre: coupon di benvenuto, carrello abbandonato e clienti che non tornano da
+un po'; a queste si aggiungono il coupon di compleanno e l'email delle offerte
+del giorno.
+
+## Ripristino da backup
+
+Dalla pagina **Backup** del pannello puoi scaricare un backup caricato dal
+gestionale oppure premere **Ripristina**: la richiesta resta in attesa e al giro
+di sincronizzazione successivo il programma scarica quel backup, salva prima una
+copia di sicurezza dello stato attuale e lo rimette al posto dei dati.
+
 ## Primo avvio
 
 1. Installa con `AnDonioMarket_Setup.exe` (oppure apri `AnDonioMarket.exe`).

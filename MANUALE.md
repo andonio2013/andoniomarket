@@ -20,7 +20,9 @@ Indice:
 10. [Self-checkout](#10-self-checkout)
 11. [Riconoscimento del volto](#11-riconoscimento-del-volto)
 12. [Sito del negozio](#12-sito-del-negozio)
+12-bis. [Impostazioni del negozio](#12-bis-impostazioni-del-negozio-pannello-web)
 13. [Sincronizzazione con il sito](#13-sincronizzazione-con-il-sito)
+13-bis. [Ruoli con limiti e seconda cassa](#13-bis-ruoli-con-limiti-e-seconda-cassa)
 14. [Backup](#14-backup)
 15. [Domande frequenti](#15-domande-frequenti)
 
@@ -153,6 +155,19 @@ Nella scheda **Prodotti**:
 - **A peso** per frutta, verdura e sfusi: in cassa si chiedono i kg.
 - Da qui si possono anche **importare** ed **esportare** i prodotti in CSV.
 
+**Reparto, fornitore, prezzo di acquisto e margine.** Ogni prodotto può avere
+un **reparto** (la categoria) e un **fornitore**: si scelgono nell'editor del
+prodotto e compaiono in elenco, dove i filtri in alto mostrano un reparto o un
+fornitore alla volta (accanto c'è la ricerca libera per nome o barcode).
+Scrivendo il **prezzo di acquisto** il programma calcola da solo il **margine**
+in percentuale: così vedi quanto rende un articolo prima di scontarlo.
+
+**📦 Lista di riordino (CSV per fornitore)** prepara l'ordine al fornitore: un
+file con i prodotti sotto scorta minima (o tutti quelli selezionati), divisi per
+fornitore, pronto da inviare per email. I fornitori con telefono ed email si
+possono registrare nella scheda **Fornitori** e nelle impostazioni del pannello
+web (*Impostazioni → Reparti, fornitori e livelli fedeltà*).
+
 **🏷️ Etichette prezzo (PDF A4)** stampa cartellini con nome, prezzo, nome del
 negozio e barcode Code128, tre per riga: puoi stampare i prodotti selezionati,
 tutti, oppure solo quelli sotto scorta minima.
@@ -185,6 +200,19 @@ C.F.**, **data di compleanno**, punti e **tessera fedeltà** (EAN-8).
   possono correggere a mano dal pulsante **Modifica punti**.
 - **Codice invito** e **invitato da**: per il programma referral (punti a chi
   invita e a chi si iscrive).
+
+### Livelli fedeltà
+
+I livelli (per esempio *Base*, *Argento*, *Oro*) si impostano dal pannello web
+in *Impostazioni → Reparti, fornitori e livelli fedeltà*: per ogni livello
+decidi **nome**, **punti** a cui scatta e **sconto %** da applicare. Sono le
+tue scelte: nessun valore è fissato dal programma.
+
+Con la casella **Sconto automatico per livello (alla cassa)** attiva, quando un
+cliente passa in cassa il sito guarda i suoi punti e applica lo sconto del
+livello raggiunto: nella cassa online lo vedi scritto nella riga del cliente.
+Nella stessa pagina imposti anche i **punti doppi** nei giorni che scegli
+(per esempio il martedì) e il moltiplicatore dei punti.
 
 ---
 
@@ -373,6 +401,12 @@ l'ultima modifica, da qualunque parte sia stata fatta.
   possono usare due volte.
 - **Punti fedeltà**: si accumulano alla cassa (1 punto per euro, configurabile),
   si possono spendere come sconto e si vedono nell'area del cliente.
+- **Livelli fedeltà**: li decidi tu. In *Impostazioni → Livelli fedeltà* scrivi
+  per ogni livello **nome**, **punti a cui scatta**, **sconto riservato** e
+  **moltiplicatore dei punti** (1 = punti normali, 2 = doppi, 1,5 = una volta e
+  mezza). Il cliente che raggiunge la soglia riceve automaticamente lo sconto
+  del livello e guadagna i punti moltiplicati; il livello e i punti che mancano
+  al successivo compaiono nella sua area, e in cassa accanto al nome.
 - **Referral**: chi invita un amico prende punti, chi si iscrive con il codice
   anche (valori configurabili).
 
@@ -441,6 +475,90 @@ Alla registrazione, se il cliente scrive il numero di una tessera che esiste gi�
 (anche con spazi, per esempio `2000 0066`), l'account viene collegato a quel
 cliente e ai suoi punti.
 
+### L'area del cliente
+
+Entrando in `/ilmioarket` il cliente vede e gestisce da solo:
+
+- la **carta fedeltà** con codice a barre e QR da far scansionare alla cassa
+  (nessun numero da dettare) e i **punti** aggiornati;
+- i **coupon** attivi (compleanno, benvenuto, offerte, carrello abbandonato,
+  Gratta&Vinci) con il codice da mostrare alla cassa;
+- gli **ordini** con lo stato del ritiro e i **premi** vinti ancora da ritirare;
+- i **dati del profilo**, compreso il **compleanno** (serve per il coupon
+automatico) e il **carrello salvato** tra una visita e l'altra.
+
+Tutto quello che il cliente muove qui arriva al programma con la
+sincronizzazione: se il cliente si iscrive dal sito, in cassa lo trovi già con
+il suo codice cliente.
+
+---
+
+## 12-bis. Impostazioni del negozio (pannello web)
+
+Nel pannello, **Impostazioni**, ci sono tutte le regole che governano il sito e
+la cassa. Ogni blocco ha il suo pulsante di salvataggio e quello che imposti qui
+arriva anche al programma desktop con la sincronizzazione (e viceversa).
+
+### Dati del negozio
+
+Nome, indirizzo, P.IVA, aliquota IVA di partenza e **valore dei punti**: sono
+gli stessi dati che finiscono su scontrini, etichette e fatture. Da qui cambi
+anche la password del tuo account del pannello.
+
+### 🎂 Coupon di compleanno
+
+Attivi o disattivi il coupon automatico del compleanno, scegli se inviarlo per
+**email** al cliente, il **valore in euro** oppure la **percentuale**, e la
+**validità in giorni**. Il giorno del compleanno il sito crea il coupon e lo
+invia da solo: in cassa si scansiona il codice e lo sconto si applica.
+
+### Regole sconti, promozioni e referral
+
+Le nove offerte del giorno (peso manuale, importo o percentuale, prodotti,
+scadenze, attivazione una per una), bundle, buoni regalo, promozioni e referral:
+sono descritte nella sezione 7 di questo manuale.
+
+### Reparti, fornitori e livelli fedeltà
+
+- **Reparti**: l'elenco delle categorie dei prodotti, uno per riga.
+- **Fornitori**: nome, telefono ed email di ogni fornitore, da usare per la
+  lista di riordino.
+- **Livelli fedeltà**: nome, punti a cui scatta il livello e sconto %, più i
+  **punti doppi** nei giorni scelti.
+
+### 🛵 Consegna a domicilio
+
+Accendi la consegna nel negozio online e imposta **costo**, **gratis sopra** un
+certo importo, **raggio in km**, **fasce orarie**, **giorni** di consegna e una
+**nota** che il cliente legge nel carrello.
+
+### ✉️ Email automatiche
+
+Tre automazioni, ognuna con i suoi valori e la sua validità:
+
+- **Coupon di benvenuto** ai nuovi clienti iscritti.
+- **Carrello abbandonato**: dopo tot ore il cliente riceve un coupon di
+  recupero.
+- **Clienti che non tornano da un po'**: dopo tot giorni parte un coupon per
+  farlo tornare.
+
+A queste si aggiungono il coupon di compleanno e l'email con le **offerte del
+giorno**, che parte da sola una volta al giorno quando accendi l'invio nella
+pagina *Offerte*. Se un invio fallisce il sito riprova e l'esito resta visibile
+nel pannello.
+
+### 🔔 Avvisi del sito
+
+La campanella nel sito avvisa i clienti delle novità (nuove offerte, ordine
+pronto, premio da ritirare). Si accende o si spegne da qui.
+
+### Backup cloud
+
+Carica lo ZIP dei backup fatti dal programma desktop e permette di scaricarlo,
+o di chiedere al programma di **ripristinare** un backup scelto: il programma
+lo scarica al primo collegamento e si riavvia con i dati ripristinati (prima
+salva sempre una copia di sicurezza). Il sito tiene gli ultimi 14 backup.
+
 ---
 
 ## 13. Sincronizzazione con il sito
@@ -470,6 +588,9 @@ indirizzo che finisce con `/api/sync/...` il programma lo corregge da solo.
 - **Scontrini** emessi fuori tavola e **registro attività**.
 - **Regole di sconto**: offerte (le nove, con scadenze e prodotti), bundle,
   buoni, promo, referral, coupon di compleanno, **regole del Gratta&Vinci**.
+- **Impostazioni del negozio**: reparti, fornitori, livelli fedeltà, punti
+  doppi, limiti di sconto, consegna a domicilio, email automatiche e avvisi:
+  quello che imposti da una parte vale anche dall'altra.
 - **Buoni regalo** (importo, saldo, scadenza).
 - **Appuntamenti**: le richieste di meeting dal sito.
 - **Premi del Gratta&Vinci** vinti e ancora da ritirare.
@@ -495,6 +616,55 @@ pannello, aggiornalo nel programma.
 
 ---
 
+## 13-bis. Ruoli con limiti e seconda cassa
+
+### Ruoli con limiti
+
+Oltre ai permessi (vendere, sconti, resi, resoconti…), ogni cassiere può avere
+**due limiti numerici**:
+
+- **sconto massimo** che può applicare (in percentuale);
+- **importo massimo** di un singolo documento.
+
+Vuoto o zero significa *nessun limite personale*. Se esiste anche il limite del
+negozio (*Impostazioni → Limite di sconto*), vale sempre il più basso dei due.
+L'amministratore non ha limiti. Quando un cassiere supera il suo limite la cassa
+lo blocca e scrive perché: serve un amministratore per quella vendita.
+
+### Seconda cassa con un codice
+
+Per mettere due casse nello stesso negozio, anche su due PC o un tablet:
+
+1. Nella dashboard apri **Casse collegate** e premi **+ Nuova postazione**: dai
+   un nome (es. «Cassa 2 · bancone»), scegli **il cassiere** che la userà e
+   salva. Compare un **codice di sei caratteri** (es. `MZ7G4P`).
+2. Sull'altro dispositivo apri il POS web: nella schermata di accesso premi
+   **🔗 Collega questa cassa con un codice**, digita il codice, **Controlla
+   codice** e poi **Collega e apri la cassa**.
+3. Quella postazione lavora **come quel cassiere**: stessi prodotti, prezzi,
+   offerte, magazzino e scontrini, con i suoi permessi e i suoi limiti. In alto
+   compare il nome della postazione (`🖧 Cassa 2 · bancone`).
+
+La cassa si stacca subito se premi **Disattiva**, se generi un **nuovo codice**
+o se cambi il cassiere collegato; **Elimina** toglie la postazione. La seconda
+cassa non deve stare per forza sulla stessa rete: basta il codice, che è
+personale come una chiave.
+
+**Dal programma del negozio (versione Illimitato e versione con licenza).**
+Nella barra in alto c'è **🖧 Casse collegate**: si apre l'elenco delle postazioni
+con il codice, il cassiere e lo stato, e da lì puoi **creare** una cassa nuova
+(nome + cassiere), **generare un nuovo codice**, **riattivare** o
+**disattivare** una postazione — sono le stesse della dashboard, quindi quello
+che fai qui si vede anche sul sito e viceversa.
+
+Con **🔗 Collega questo PC** digiti il codice e *quel* computer diventa la
+seconda cassa: in alto compare `🖧 Nome postazione · cassiere`, e valgono i
+permessi e i limiti di quel cassiere (sconto massimo e importo massimo del
+documento, controllati anche dal programma). **🚫 Scollega** riporta il PC a
+cassa principale.
+
+---
+
 ## 14. Backup
 
 Tre livelli, tutti attivi di default:
@@ -509,10 +679,20 @@ Tre livelli, tutti attivi di default:
    `27-10-2026_15-20-45`): nessun backup precedente viene mai sovrascritto.
    Si accende o spegne da **Impostazioni & Backup**.
 3. **Backup sul sito** — una volta al giorno il programma carica sul sito lo
-   stesso ZIP dei backup locali (mai il file `.env`). Dal pannello web,
-   *Impostazioni → Backup cloud*, si scarica l'ultimo file per ripristinarlo da
-   **Ripristina da file…** se il PC si guasta. Il sito tiene gli ultimi 14
-   backup.
+   stesso ZIP dei backup locali (mai il file `.env`). Dal pannello web, pagina
+   **Backup**, si vede l'elenco con data, PC e dimensione: si può **Scaricare**
+   un file, **Eliminare** o **Ripristinare** direttamente.
+
+### Ripristino dal sito
+
+Dalla pagina **Backup** premi **Ripristina** accanto al backup che vuoi
+rimettere: la richiesta resta *in attesa del gestionale*. Al giro di
+sincronizzazione successivo il programma del negozio scarica quel backup e lo
+rimette al posto dei dati attuali — prima crea da solo una copia di sicurezza
+dello stato corrente, quindi si può sempre tornare indietro — poi riferisce
+l'esito alla dashboard (*completato* o *errore* con il motivo) e si chiude: va
+riaperto per lavorare con i dati ripristinati. La richiesta si può annullare
+dalla dashboard finché il gestionale non l'ha presa in carico.
 
 ---
 
