@@ -22,6 +22,7 @@ Indice:
 11. [Riconoscimento del volto](#11-riconoscimento-del-volto)
 12. [Sito del negozio](#12-sito-del-negozio)
 12-bis. [Impostazioni del negozio](#12-bis-impostazioni-del-negozio-pannello-web)
+12-ter. [Esperienza in negozio: schermo, ruota, totem, vetrina e giudizi](#12-ter-esperienza-in-negozio-schermo-ruota-totem-vetrina-e-giudizi)
 13. [Sincronizzazione con il sito](#13-sincronizzazione-con-il-sito)
 13-bis. [Ruoli con limiti e seconda cassa](#13-bis-ruoli-con-limiti-e-seconda-cassa)
 14. [Backup](#14-backup)
@@ -646,6 +647,126 @@ lo scarica al primo collegamento e si riavvia con i dati ripristinati (prima
 salva sempre una copia di sicurezza). Il sito tiene gli ultimi 14 backup.
 
 ---
+
+## 12-ter. Esperienza in negozio: schermo, ruota, totem, vetrina e giudizi
+
+Questa parte è pensata per quello che il **cliente vede e usa**: il monitor
+girato verso di lui, la ruota dei premi a fine spesa, il totem per ordinare, la
+vetrina da sfogliare e le stelle del giudizio con il ponte verso Google.
+
+Tutto si gestisce da **Esperienza** nel gestionale e dalla scheda **Esperienza**
+(`🖥`) della dashboard online: sono la stessa cosa. Quello che cambi in uno
+arriva all'altro alla prima sincronizzazione, e vale anche per le altre casse.
+
+### A cosa serve ogni pezzo
+
+| Funzione | A cosa serve | Dove si apre |
+|---|---|---|
+| **Schermo cliente** | Mostra dal vivo carrello, totale, saluto col nome, offerte e ordini pronti | `/schermo` sul secondo monitor o su un telefono |
+| **Ruota della fortuna** | Oltre la soglia di spesa che decidi tu, il cliente gira e vince un premio | scheda Esperienza → 🎡 Ruota |
+| **Totem ordini** | Il cliente sceglie i prodotti che hai messo a disposizione e riceve un codice di ritiro | `/totem` sul monitor o dal suo telefono |
+| **Vetrina** | Catalogo da sfogliare per reparto, con prezzi e offerte | `/vetrina` |
+| **Giudizio e Google** | Il cliente vota da 1 a 5 stelle; se è contento lo porti alla recensione | QR sullo scontrino o `/feedback` |
+
+### Lo schermo cliente
+
+1. Apri **Esperienza** e lascia acceso «Schermo cliente».
+2. Scrivi titolo, messaggio di benvenuto e saluto: `{nome}` viene sostituito
+   con il nome del cliente riconosciuto dalla tessera.
+3. Apri l'indirizzo `/schermo` sul monitor del cliente. Se hai più casse,
+   aggiungi il nome della postazione: `/schermo?terminale=cassa1`.
+4. Da quel momento la cassa pubblica il carrello a ogni modifica e il cliente
+   vede riga per riga quello che stai battendo, con il totale che sale.
+
+Il carrello arriva anche dalla cassa desktop: apri **Esperienza → 🖥 Schermo
+cliente** per averlo sulla stessa macchina, oppure usa l'indirizzo web per un
+tablet o un telefono collegato alla stessa rete.
+
+Quando lo scontrino è emesso lo schermo passa al ringraziamento e, se la spesa
+supera la soglia, parte la ruota.
+
+### La ruota dei premi
+
+- **Spesa minima**: sotto questa cifra la ruota non parte (0 = sempre).
+- **Giri al giorno per cliente**: 0 significa illimitati; con 1 il cliente che
+  ha già vinto oggi non rigira.
+- **Validità del premio**: per quanti giorni il codice resta valido.
+
+Ogni premio ha nome, tipo, valore e **probabilità**. Le probabilità si pesano
+tra loro: se hai «Buono 5 €» a 10 e «Ritenta» a 90, il buono esce una volta su
+dieci. Non devi farle arrivare a 100.
+
+| Tipo di premio | Cosa succede |
+|---|---|
+| Buono in euro | Crea un coupon `CPN…` con l'importo indicato |
+| Sconto in % | Crea un coupon `CPN…` con la percentuale |
+| Punti fedeltà | Accredita subito i punti al cliente |
+| Prodotto in regalo | Crea un coupon al 100% con il nome del premio |
+| Nessun premio | Mostra «Ritenta!» senza creare nulla |
+
+Il codice del premio è già utilizzabile in cassa: si digita nel campo dei
+codici sconto e il sistema lo riconosce, sia nel gestionale sia nel POS web.
+Il premio vinto compare anche sullo schermo del cliente, così vede il codice.
+
+### Il totem (anche dal telefono del cliente)
+
+Nel totem **non compaiono tutti i prodotti**: compaiono quelli che scegli tu.
+
+1. In **Esperienza**, cerca il prodotto e tocca la riga (o doppio clic) per
+   metterlo nel totem. La colonna «Totem» mostra la spunta.
+2. «Mostra tutti» svuota la selezione e rimette il catalogo intero.
+3. Salva: la scelta arriva subito al sito e alle altre casse.
+
+Con «Totem dal telefono del cliente» attivo, lo stesso indirizzo `/totem`
+funziona sul telefono: il cliente sceglie, lascia nome o numero, riceve il
+codice `ORD…` e paga alla cassa. Se un prodotto non è tra quelli scelti,
+l'ordine viene rifiutato: nessuno può ordinare fuori dal totem.
+
+### La vetrina
+
+La vetrina mostra tutti i prodotti per reparto, con il prezzo e il prezzo
+scontato quando c'è un'offerta. Non vende: serve a far scoprire quello che il
+cliente non stava cercando. Si apre con `/vetrina` o da **Esperienza → 🪟
+Vetrina**.
+
+### Ordini pronti e numero sul monitor
+
+Quando un ordine è pronto, segnalo da **Ordini** (o da **Esperienza → Ordini da
+ritirare**). Il numero compare sullo schermo del cliente con il codice; con
+«📣 Chiama» il numero si evidenzia e lampeggia, così il cliente capisce che
+tocca a lui. Con «✅ Ritirato» sparisce dallo schermo.
+
+### Giudizio e recensioni Google
+
+1. Incolla il link della recensione Google in **Esperienza → Link recensioni
+   Google** (nel profilo dell'attività: «Chiedi recensioni»).
+2. Scegli il **voto minimo** per proporre Google: con 5, solo chi dà 5 stelle
+   viene portato alla recensione; gli altri lasciano un commento a te.
+3. A fine spesa si apre la finestra delle stelle (nel gestionale) o la pagina
+   `/feedback` (dal QR sullo scontrino).
+
+I giudizi restano in **Esperienza → Ultimi giudizi**, con la media. Servono a
+capire i giorni storti prima che diventino recensioni negative.
+
+### QR sullo scontrino
+
+Il PDF dello scontrino ha in fondo un QR che porta alla pagina del giudizio di
+quella spesa. Il cliente inquadra, tocca le stelle e, se è contento, finisce
+direttamente sulla recensione Google. Non serve installare nulla sul telefono.
+
+Il QR compare solo se nelle impostazioni di sincronizzazione c'è l'indirizzo del
+sito: senza sito il PDF esce come prima, senza QR.
+
+### Se qualcosa non va
+
+| Sintomo | Cosa controllare |
+|---|---|
+| Lo schermo resta su «Collegamento…» | Il telefono/monitor è sulla stessa rete? L'indirizzo `/schermo?terminale=…` ha lo stesso nome della cassa? |
+| Il carrello non si aggiorna | La cassa ha il token di sincronizzazione? Impostazioni → Sincronizza. |
+| La ruota non parte | Spesa sotto la soglia, ruota spenta, oppure il cliente ha già girato oggi. |
+| Il totem non mostra un prodotto | Non è tra quelli scelti in Esperienza, oppure è a scorta zero. |
+| Il codice del premio non vale | Il coupon è scaduto (validità in giorni) o è già stato usato. |
+| Il QR non c'è sul PDF | Manca l'indirizzo del sito nelle impostazioni di sincronizzazione. |
 
 ## 13. Sincronizzazione con il sito
 
