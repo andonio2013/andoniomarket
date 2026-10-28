@@ -231,6 +231,22 @@ vengono mai inviate a Internet. Se un cliente viene riconosciuto troppo spesso
 o troppo poco, si regola la **soglia** dalle stesse impostazioni (30 = severa,
 130 = permissiva).
 
+## AnDoPay: la carta del negozio
+
+**AnDoPay** è la carta di pagamento interna: saldo, PIN e CVC, livelli
+(Bronzo, Argento, Oro e quelli che crei tu) che scattano con i punti, ricariche,
+rettifiche, blocchi e prestiti a rate. La emetti dal pannello o dal programma,
+con numero da 8, 12 o 16 cifre, e il cliente la richiede da solo su
+**[`/cartando`](https://site-0d25e51ac1fb4bf1bddfc61dd626b1bc.freebuff.page/cartando)**:
+lí vede la carta disegnata con il colore del suo livello, il saldo, i movimenti,
+il **codice monouso di 8 cifre** e il pulsante per chiedere un prestito.
+
+Si paga in tre modi: **numero + PIN + CVC**, **codice monouso di 8 cifre**
+(digitato in cassa come un codice prodotto, vale una volta sola) oppure con un
+addebito dal pannello. Funziona nella cassa desktop, nel POS web e nel
+self-checkout; il saldo lo muove il sito, quindi cassa, web e area cliente
+restano sempre allineati e sullo scontrino compare il saldo rimasto.
+
 ## Ruoli con limiti e seconda cassa
 
 Ogni cassiere può avere i suoi **permessi** (vendere, sconti, resi, resoconti,

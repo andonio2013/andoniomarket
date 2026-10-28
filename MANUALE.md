@@ -16,6 +16,7 @@ Indice:
 6. [Gratta e vinci](#6-gratta-e-vinci)
 7. [Offerte del giorno e sconti](#7-offerte-del-giorno-e-sconti)
 8. [Coupon, buoni regalo e punti](#8-coupon-buoni-regalo-e-punti)
+8-bis. [AnDoPay — la carta del negozio](#8-bis-andopay--la-carta-del-negozio)
 9. [Ordini con ritiro](#9-ordini-con-ritiro)
 10. [Self-checkout](#10-self-checkout)
 11. [Riconoscimento del volto](#11-riconoscimento-del-volto)
@@ -409,6 +410,91 @@ l'ultima modifica, da qualunque parte sia stata fatta.
   al successivo compaiono nella sua area, e in cassa accanto al nome.
 - **Referral**: chi invita un amico prende punti, chi si iscrive con il codice
   anche (valori configurabili).
+
+---
+
+## 8-bis. AnDoPay — la carta del negozio
+
+AnDoPay è la carta di pagamento del negozio: un conto con saldo, PIN e CVC che
+il cliente usa in cassa, nel self-checkout e per i prestiti. Non è una carta
+bancaria: i soldi li gestisci tu dal pannello o dal programma, e ogni
+movimento resta scritto con il saldo che ne risulta.
+
+### I livelli della carta
+
+Bronzo, Argento, Oro e quelli che aggiungi tu. Ogni livello ha **nome**,
+**colore**, **punti a cui scatta**, **sconto in cassa** e un eventuale tetto di
+saldo. Il livello sale da solo quando il cliente raggiunge la soglia di punti
+fedeltà: il cambio resta nei movimenti (per esempio «Carta passata da bronzo a
+oro»).
+
+### Emettere una carta
+
+Dal programma: scheda **AnDoPay → ➕ Emetti carta**, scegli cliente, livello,
+numero (vuoto = lo genera il sistema), PIN e saldo iniziale. Dal pannello web:
+**AnDoPay → + Emetti carta**, stessa cosa. Alla fine leggi **numero, PIN e CVC**
+da comunicare al cliente: il PIN serve a pagare, il CVC è la conferma in cassa.
+
+- Il numero può avere **8, 12 o 16 cifre** (lo decidi in *Impostazioni*), con il
+  prefisso che vuoi.
+- PIN di 4 cifre e CVC di 3: se non li scrivi tu vengono generati a caso.
+- Una carta per cliente. **Blocca** e **Disattiva** fermano subito i pagamenti;
+  **Gestisci** cambia numero, PIN, CVC, intestatario, livello e saldo.
+
+### Saldo, ricariche e movimenti
+
+In *Gestisci carta* scrivi il nuovo saldo: la differenza diventa una **ricarica**
+(o una **rettifica**, se abbassi). Ogni movimento registra tipo, importo, saldo
+risultante, chi l'ha fatto e l'ora. Il cliente vede gli stessi movimenti nella
+sua area.
+
+### Pagare con AnDoPay
+
+Tre modi, tutti equivalenti:
+
+1. **Numero + PIN + CVC** in cassa, nel POS web o nel self-checkout. Se la carta
+   non ha saldo sufficiente il pagamento viene rifiutato e lo scontrino non
+   parte.
+2. **Codice monouso di 8 cifre**: il cliente lo genera su `/cartando`, tu lo
+   digiti in cassa come se fosse un codice prodotto. Il sistema riconosce
+   cliente e carta, imposta il pagamento, e il codice **si brucia**: vale per
+   una sola transazione e scade dopo i minuti che imposti (15 di default).
+3. **Addebito dal pannello o dal programma**, per correggere una vendita.
+
+Sullo scontrino compare `AnDoPay ****1234 · saldo …`, così il cliente sa quanto
+gli resta.
+
+### L'area del cliente: `/cartando`
+
+Con il login del sito il cliente vede la **carta disegnata** (colore del
+livello, numero mascherato, intestatario, scadenza, CVC a richiesta), il saldo,
+la barra verso il livello successivo, i movimenti, il pulsante per il **codice
+monouso**, la richiesta di **prestito** e il **cambio PIN**. Il link è anche in
+`/ilmioarket`, accanto a Listino, Prenota e Gratta e vinci.
+
+### Prestiti
+
+Il cliente può **chiedere** un prestito dalla sua area, oppure lo concedi tu dal
+pannello (*Prestiti → Concedi*) o dal programma (*AnDoPay → 💰 Concedi
+prestito*). La cifra entra **subito** nel saldo e il debito si restituisce in
+**rate mensili trattenute in automatico dal saldo**; il residuo e la prossima
+rata restano visibili sulla carta. Se il saldo non basta, la rata slitta al
+mese dopo.
+
+### Impostazioni AnDoPay
+
+Nel pannello, **AnDoPay → Impostazioni**: lunghezza del numero, prefisso,
+minuti di validità del codice, ricarica massima, prestito massimo e numero di
+rate, PIN e CVC obbligatori, e se il cliente può crearsi la carta da solo.
+Le stesse regole valgono per il programma desktop.
+
+### Sincronizzazione
+
+Carte, livelli, movimenti, prestiti e codici arrivano al programma con la
+sincronizzazione (scheda **AnDoPay → 🔄 Aggiorna dal sito**). Il **saldo lo
+muove solo il sito**: così cassa desktop, POS web, self-checkout e area del
+cliente non possono mai divergere. Se il sito non è raggiungibile, AnDoPay non
+incassa: meglio un pagamento con carta o contanti che un saldo sbagliato.
 
 ---
 
