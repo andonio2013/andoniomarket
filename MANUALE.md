@@ -194,9 +194,29 @@ si usa il pulsante **Applica** della scheda verde. Se il codice non è in
 nessun catalogo, o se il prodotto è conosciuto ma nessuno ne ha segnalato il
 prezzo, il programma te lo dice e lasci i campi come sono.
 
-I risultati restano in cache per una settimana: la seconda volta la ricerca è
-istantanea. I prezzi sono segnalazioni della community, non un listino:
-controllali prima di salvare, soprattutto su prodotti freschi o promo.
+I risultati restano in cache per settimane: la seconda volta la ricerca è
+istantanea. I prezzi sono segnalazioni, non un listino: controllali prima di
+salvare, soprattutto su prodotti freschi o promo.
+
+**Quali siti vengono interrogati.** Il programma non si ferma alla prima
+fonte: prova *Open Food Facts* (alimentari), *Open Beauty Facts* (cosmetici),
+*Open Products Facts* (casa, bricolage, accessori), *Open Pet Food Facts*
+(animali) e *UPCitemdb*, che copre elettronica, telefonia e articoli generici.
+Del codice prova anche le forme equivalenti (UPC-A a 12 cifre, GTIN a 13 e 14
+con lo zero davanti), perché lo stesso prodotto può essere registrato in modo
+diverso da come è stampato. I prezzi in dollari vengono convertiti in euro col
+cambio BCE del giorno.
+
+**Se il codice è interno, cerca per nome.** I prodotti creati dal gestionale
+senza barcode ricevono un codice di 8 cifre che inizia per **2** (per esempio
+`20000059`): è un codice del tuo negozio, non del produttore, e nessun sito
+al mondo lo conosce. In quel caso il programma te lo dice e non inventa
+niente. Sotto il campo barcode c'è **Cerca per nome**: scrivi due o tre parole
+(«Gimbal Osmo Mobile», «Portaocchiali Fila»), premi *Cerca* e scegli tra i
+prodotti trovati con foto, marca e prezzo di riferimento. Con **Usa** il nome,
+il prezzo di vendita (riferimento + 7,9%) e il costo si compilano da soli. Se il
+prodotto ha un codice a barre reale sulla confezione, scansiona quello: la
+ricerca lo trova molto più spesso.
 
 **Reparto, fornitore, prezzo d'acquisto e margine.** Ogni prodotto può avere
 un **reparto** (la categoria) e un **fornitore**: si scelgono nell'editor del
