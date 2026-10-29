@@ -15,6 +15,7 @@ Indice:
 5. [Appuntamenti dal sito](#5-appuntamenti-dal-sito)
 6. [Gratta e vinci](#6-gratta-e-vinci)
 7. [Offerte del giorno e sconti](#7-offerte-del-giorno-e-sconti)
+7-bis. [Il cervello del negozio](#7-bis-il-cervello-del-negozio-previsioni-riordino-regole-missioni-turni)
 8. [Coupon, buoni regalo e punti](#8-coupon-buoni-regalo-e-punti)
 8-bis. [AnDoPay — la carta del negozio](#8-bis-andopay--la-carta-del-negozio)
 9. [Ordini con ritiro](#9-ordini-con-ritiro)
@@ -144,6 +145,10 @@ coupon.
   lo riprende (utile quando il cliente dimentica qualcosa).
 - Dalla scheda **Scontrini** cerchi un documento passato e lo ristampi in TXT o
   PDF, oppure ne fai uno **storno** (reso).
+- **Invia per email** manda al cliente una pagina leggibile dal telefono:
+  caratteri grandi, un prodotto per riga e totale in evidenza, con il PDF
+  allegato per la stampa. Lo scontrino stampato e quello della dashboard non
+  cambiano.
 
 ---
 
@@ -385,6 +390,92 @@ stessi importi del negozio, anche se nel frattempo un prezzo è stato corretto.
 
 Tutte queste regole si sincronizzano **a due vie** con la dashboard: vince
 l'ultima modifica, da qualunque parte sia stata fatta.
+
+---
+
+## 7-bis. Il cervello del negozio: previsioni, riordino, regole, missioni, turni
+
+Nel pannello web c'è la voce **Cervello** (nella barra a sinistra, icona 🧠) e
+nel gestionale desktop c'è la scheda **🧠 Cervello**: sono lo stesso pannello,
+con quattro schede, e lavorano sugli stessi dati del sito.
+
+Tutto quello che imposti lì vale **subito** per la cassa web e per la cassa del
+gestionale desktop, perché le regole vivono sul server e non in una copia
+locale. Nel desktop la scheda ha bisogno del collegamento al sito (Clienti →
+⚙️ Impostazioni sincronizzazione sito, incolla il token): senza token la cassa
+continua a funzionare con le regole locali e la scheda lo dice chiaramente.
+
+### Previsioni e riordino
+
+Per ogni prodotto il sistema calcola, sulle **vendite reali degli ultimi 28
+giorni**:
+
+- la **media venduta al giorno**;
+- i **giorni di copertura** (giacenza ÷ media);
+- il **suggerito**, cioè quanto ordinare per coprire 14 giorni più la scorta
+  minima che hai impostato sul prodotto;
+- lo **stato**: *esaurito*, *urgente* (3 giorni o meno), *esaurimento* (sotto la
+  scorta minima o 7 giorni) oppure *ok*.
+
+La tabella è già ordinata: prima quello che sta finendo, poi i prodotti che
+vendono di più. Sotto trovi il **riordino per fornitore**: per ogni fornitore
+compare l'elenco con le quantità suggerite e il totale a costo d'acquisto, con
+il pulsante **Crea ordine**. L'ordine resta registrato (stato *inviato*) e si
+può rileggere quando arriva la merce.
+
+> La previsione non inventa niente: se un prodotto non ha vendite negli ultimi
+> 28 giorni il suggerimento è zero. Appena inizi a vendere, i numeri si
+> muovono da soli.
+
+### Regole sconto automatiche
+
+Qui crei gli sconti che la cassa applica **senza digitare nessun codice**:
+
+| Tipo | Cosa fa |
+|---|---|
+| **Percentuale** | Sconta del % scelto le righe che corrispondono. |
+| **3×2** | Ogni 3 pezzi il più economico è gratis. |
+| **2×1** | Ogni 2 pezzi uno è gratis. |
+| **Bundle** | Ogni gruppo di N pezzi riceve uno sconto fisso in euro. |
+| **Scaglione** | Se il carrello supera la soglia, sconto in percentuale. |
+
+Per ogni regola decidi **tutto**: nome, prodotti (nomi o codici, vuoto =
+tutti), categorie, giorni della settimana, **fascia oraria** (per esempio
+`18:00`–`23:59` per lo sconto anti-spreco della sera), periodo di validità,
+**priorità** e interruttore *attiva*.
+
+Come funziona in pratica:
+
+1. Le regole attive vengono applicate in ordine di priorità (numero più basso
+   prima).
+2. Ogni regola calcola il suo sconto sulle righe che le corrispondono; la somma
+   non può mai superare il conto.
+3. In cassa, appena il carrello cambia, compare la riga **Sconti automatici**
+   con l'importo. All'emissione lo sconto viene ricalcolato dal server, quindi
+   quello che vedi è esattamente quello che finisce sullo scontrino (voce
+   `CODICE AUTO`).
+
+### Missioni cliente
+
+Una missione è un obiettivo che dà punti: *tre visite in una settimana*,
+*50 € di spesa nel mese*, *200 punti guadagnati*. Scegli tipo, soglia, premio in
+punti e ricorrenza (settimana o mese).
+
+Il progresso si calcola dagli scontrini veri del cliente nel periodo. Appena
+raggiunge la soglia i punti vengono **accreditati una volta sola** e restano
+nello storico punti; a ogni nuova settimana (o mese) il progresso riparte da
+zero.
+
+### Turni e chiusura Z per operatore
+
+Il pulsante **Timbra entrata / uscita** apre il turno al primo tocco e lo chiude
+al secondo, con data e ora. Nella stessa scheda scegli un periodo e leggi la
+**chiusura Z per operatore**: scontrini emessi, incasso totale, quota in
+contanti, sconti concessi, documenti annullati e ore lavorate.
+
+Il collegamento con gli scontrini è automatico: ogni documento emesso dalla
+cassa web registra chi lo ha fatto, quindi il report è sempre allineato alle
+vendite reali.
 
 ---
 
@@ -708,6 +799,12 @@ Il codice del premio è già utilizzabile in cassa: si digita nel campo dei
 codici sconto e il sistema lo riconosce, sia nel gestionale sia nel POS web.
 Il premio vinto compare anche sullo schermo del cliente, così vede il codice.
 
+La ruota la gira **il cliente**, dallo schermo: quando la spesa supera la
+soglia compare il pulsante **Gira la ruota**. Un solo giro per scontrino;
+appena il premio è mostrato lo schermo si ripulisce da solo dopo pochi secondi
+(o subito con **Prossimo cliente**) ed è pronto per il cliente dopo. Il
+pulsante sta solo sullo schermo del cliente, non nel gestionale.
+
 ### Il totem (anche dal telefono del cliente)
 
 Nel totem **non compaiono tutti i prodotti**: compaiono quelli che scegli tu.
@@ -721,6 +818,23 @@ Con «Totem dal telefono del cliente» attivo, lo stesso indirizzo `/totem`
 funziona sul telefono: il cliente sceglie, lascia nome o numero, riceve il
 codice `ORD…` e paga alla cassa. Se un prodotto non è tra quelli scelti,
 l'ordine viene rifiutato: nessuno può ordinare fuori dal totem.
+
+La prima schermata chiede **chi è il cliente**, pensata anche per chi entra da
+fuori:
+
+- **Ho un account** — email e password: accumula punti e può pagare con la
+  carta AnDoPay.
+- **Continua come ospite** — ordina lo stesso, senza registrarsi, e paga alla
+  cassa al ritiro.
+
+Il pagamento con **AnDoPay** compare solo dopo l'accesso: si sceglie la carta,
+si digita il PIN di 4 cifre e l'importo viene scalato subito. Chi è ospite vede
+l'invito «Paga con AnDoPay e accumula punti» con il pulsante **Accedi**: senza
+login non si può pagare online.
+
+Se il cliente lascia l'email, la conferma arriva subito e contiene il **codice
+di ritiro in grande**, un prodotto per riga con quantità e prezzo, il **totale
+in grassetto** e il metodo di pagamento. Si legge dal telefono senza zoom.
 
 ### La vetrina
 
