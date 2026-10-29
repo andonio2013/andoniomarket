@@ -174,6 +174,30 @@ pubblicato lo è) e il permesso della fotocamera: la prima volta il browser lo
 chiede, basta toccare *Consenti*. Se la fotocamera risulta occupata, chiudi
 Iriun o l'app che la sta usando e riprova.
 
+**🔎 Cerca online e compila.** Con il codice a barre nella scheda prodotto, il
+pulsante *Cerca online e compila* interroga i cataloghi aperti e compila la
+scheda al posto tuo:
+
+- **nome, marca, formato e foto** arrivano da *Open Food Facts* (copertura
+  ottima sui prodotti alimentari confezionati);
+- il **prezzo online** è la mediana dei prezzi segnalati dai clienti in
+  *Open Prices*, preferendo le rilevazioni italiane quando ce ne sono almeno
+  due;
+- il **prezzo di vendita** viene calcolato da solo: prezzo online **+ 7,9%**
+  (il ricarico del negozio), arrotondato al centesimo;
+- il **costo d'acquisto** è il prezzo online trovato.
+
+Se hai appena scansionato il codice con la fotocamera la ricerca parte da
+sola: la scheda si compila mentre guardi. Su un prodotto nuovo i campi vuoti
+vengono riempiti subito; su un prodotto esistente nulla viene sovrascritto,
+si usa il pulsante **Applica** della scheda verde. Se il codice non è in
+nessun catalogo, o se il prodotto è conosciuto ma nessuno ne ha segnalato il
+prezzo, il programma te lo dice e lasci i campi come sono.
+
+I risultati restano in cache per una settimana: la seconda volta la ricerca è
+istantanea. I prezzi sono segnalazioni della community, non un listino:
+controllali prima di salvare, soprattutto su prodotti freschi o promo.
+
 **Reparto, fornitore, prezzo d'acquisto e margine.** Ogni prodotto può avere
 un **reparto** (la categoria) e un **fornitore**: si scelgono nell'editor del
 prodotto e compaiono in elenco, dove i filtri in alto mostrano un reparto o un
