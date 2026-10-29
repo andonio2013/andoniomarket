@@ -776,6 +776,36 @@ tablet o un telefono collegato alla stessa rete.
 Quando lo scontrino è emesso lo schermo passa al ringraziamento e, se la spesa
 supera la soglia, parte la ruota.
 
+### Voce, suoni e annunci
+
+Lo schermo e il totem parlano e suonano da soli, senza YouTube e senza file da
+scaricare: i suoni sono costruiti dal browser e la voce è quella italiana del
+dispositivo. Si accendono da **Esperienza → 🔊 Voce e suoni**.
+
+- **Suoni attivi** e **Voce attiva**: le due spie generali.
+- **Volume**: da 0 a 100.
+- **Jingle di apertura** e **di chiusura**: una melodia breve, riprodotta una
+  volta sola. Nel gestionale desktop parte all'avvio e alla chiusura; sullo
+  schermo web parte al primo tocco.
+- **Frasi lette**: benvenuto (`{nome}`), ordine pronto (`{numero}`), premio
+  della ruota (`{premio}`), cliente che chiama un addetto. Puoi riscriverle
+  come vuoi.
+
+Al primo accesso il browser blocca l'audio finché non c'è un tocco: sullo
+schermo compare **Attiva voce e suoni** in basso a destra, basta toccarlo una
+volta. Da quel momento la voce parte da sola.
+
+**Annunci.** In Esperienza trovi una riga di annunci pronti (benvenuto,
+chiusura, offerte, corsia in allestimento) e un campo per scrivere i tuoi.
+- **💾 Salva annuncio** lo aggiunge all'elenco e resta salvato anche dopo il
+  riavvio, sincronizzato con il desktop.
+- **▶ Leggi** lo fa sentire solo sul dispositivo su cui stai lavorando.
+- **📢 In onda** lo fa leggere una volta su tutti gli schermi collegati.
+
+Il totem ha anche **Chiama addetto**: il cliente lo tocca e sullo schermo del
+banco parte un suono, la frase scelta e l'avviso, così sai che qualcuno ti
+aspetta.
+
 ### La ruota dei premi
 
 - **Spesa minima**: sotto questa cifra la ruota non parte (0 = sempre).
