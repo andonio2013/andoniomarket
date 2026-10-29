@@ -162,7 +162,19 @@ Nella scheda **Prodotti**:
 - **A peso** per frutta, verdura e sfusi: in cassa si chiedono i kg.
 - Da qui si possono anche **importare** ed **esportare** i prodotti in CSV.
 
-**Reparto, fornitore, prezzo di acquisto e margine.** Ogni prodotto può avere
+**📷 Scansionare il codice col telefono.** Nel pannello web, nella scheda
+prodotto, accanto al campo *Barcode / SKU* c'è il pulsante **📷 Scansiona**:
+si apre la fotocamera del telefono (o del PC), si inquadra il codice e il campo
+si compila da solo, con un suono di conferma. Va bene qualsiasi codice — EAN-13,
+EAN-8, UPC, Code 128, Code 39, ITF, QR — e la lettura funziona anche su iPhone.
+Se il codice è già usato da un altro articolo il programma lo dice subito, così
+non nascono due prodotti con lo stesso barcode. Se la torcia c'è, compare il
+pulsante per accenderla. La fotocamera richiede un indirizzo **https** (il sito
+pubblicato lo è) e il permesso della fotocamera: la prima volta il browser lo
+chiede, basta toccare *Consenti*. Se la fotocamera risulta occupata, chiudi
+Iriun o l'app che la sta usando e riprova.
+
+**Reparto, fornitore, prezzo d'acquisto e margine.** Ogni prodotto può avere
 un **reparto** (la categoria) e un **fornitore**: si scelgono nell'editor del
 prodotto e compaiono in elenco, dove i filtri in alto mostrano un reparto o un
 fornitore alla volta (accanto c'è la ricerca libera per nome o barcode).
