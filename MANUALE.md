@@ -24,6 +24,7 @@ Indice:
 12. [Sito del negozio](#12-sito-del-negozio)
 12-bis. [Impostazioni del negozio](#12-bis-impostazioni-del-negozio-pannello-web)
 12-ter. [Esperienza in negozio: schermo, ruota, totem, vetrina e giudizi](#12-ter-esperienza-in-negozio-schermo-ruota-totem-vetrina-e-giudizi)
+12-quater. [Recensioni e proposte dei clienti](#12-quater-recensioni-e-proposte-dei-clienti)
 13. [Sincronizzazione con il sito](#13-sincronizzazione-con-il-sito)
 13-bis. [Ruoli con limiti e seconda cassa](#13-bis-ruoli-con-limiti-e-seconda-cassa)
 14. [Backup](#14-backup)
@@ -162,6 +163,29 @@ Nella scheda **Prodotti**:
 - **A peso** per frutta, verdura e sfusi: in cassa si chiedono i kg.
 - Da qui si possono anche **importare** ed **esportare** i prodotti in CSV.
 
+**Tipologia del prodotto.** Ogni articolo ha una **tipologia**, che dice come si
+vende e come va trattato in cassa e in etichetta:
+
+| Tipologia | Quando usarla |
+|---|---|
+| **Confezione (a pezzo)** | L'articolo normale, che si vende a pezzo. È la scelta predefinita. |
+| **A peso (al kg)** | Frutta, verdura, salumi: in cassa vengono chiesti i kg e il prezzo si moltiplica. |
+| **Sfuso (al kg)** | Sfusi e granaglie, stessa logica del peso ma tenuti distinti nelle statistiche. |
+| **Servizio** | Riparazioni, ricariche, prestazioni: non ha giacenza e non compare nelle liste di riordino. |
+| **Kit / confezione multipla** | Confezioni che contengono più pezzi dello stesso articolo. |
+
+La tipologia si sceglie nell'editor del prodotto, si vede in elenco e viaggia
+nella sincronizzazione insieme al resto della scheda. Se modifichi un prodotto
+esistente e non tocchi il campo, la tipologia che aveva resta quella.
+
+**Codici mai doppi.** Se lasci vuoto il barcode, il programma genera un codice
+di 8 cifre che parte da **2** (per esempio `20000967`) e **controlla che non sia
+già usato** da un altro prodotto o da una tessera: il codice nuovo viene
+ripetuto finché non ne trova uno libero. Anche quando scrivi un barcode a mano
+il controllo è immediato: se è già in catalogo il salvataggio viene fermato con
+un messaggio chiaro, invece di creare due articoli con lo stesso codice. Il
+controllo vale sia in cassa sia nel pannello web.
+
 **📷 Scansionare il codice col telefono.** Nel pannello web, nella scheda
 prodotto, accanto al campo *Barcode / SKU* c'è il pulsante **📷 Scansiona**:
 si apre la fotocamera del telefono (o del PC), si inquadra il codice e il campo
@@ -234,6 +258,51 @@ web (*Impostazioni → Reparti, fornitori e livelli fedeltà*).
 **🏷️ Etichette prezzo (PDF A4)** stampa cartellini con nome, prezzo, nome del
 negozio e barcode Code128, tre per riga: puoi stampare i prodotti selezionati,
 tutti, oppure solo quelli sotto scorta minima.
+
+### La stampante Fichero (etichette 50×14 mm)
+
+Se hai la **Fichero** — la piccola stampante Bluetooth da 50×14 mm — puoi
+stampare le etichette dei prodotti e il **talloncino del totale** dello
+scontrino direttamente dal pannello web, senza passare dal PDF.
+
+**Collegarla.** Serve **Chrome o Edge**, su computer o su Android (su iPhone il
+Bluetooth delle pagine web non è disponibile). Nella scheda **Etichette** premi
+**Collega stampante**, scegli la Fichero dall'elenco che compare e la barra in
+alto diventa verde con la percentuale di batteria. Il collegamento resta buono
+finché la stampante è accesa: se si spegne, si ricollega con lo stesso pulsante.
+
+**Cosa si stampa.** La scheda ha due parti:
+
+- **Etichette dei prodotti** — scegli i prodotti (ricerca per nome o barcode, o
+  *tutti*), vedi l'anteprima e stampi. Ogni etichetta porta nome, prezzo e
+  **codice a barre** leggibile dalla cassa, così un articolo senza barcode del
+  produttore diventa scansionabile come tutti gli altri.
+- **Talloncino del totale** — un'etichetta con negozio, numero dello scontrino,
+  data, pezzi e **totale in grande**. Si prepara da **Storico documenti**: apri
+  uno scontrino e premi *Stampa totale*. Così attacchi il talloncino sulla
+  busta o sul pacco del cliente senza ristampare lo scontrino intero.
+
+**I parametri sono tuoi.** In *Impostazioni di stampa*, dentro la scheda
+**Etichette**, si regola tutto:
+
+| Parametro | A cosa serve |
+|---|---|
+| **Lunghezza etichetta (mm)** | Da 20 a 60 mm; per le 50×14 mm lascia 50. |
+| **Altezza talloncino totale (mm)** | Quanto deve essere lungo il talloncino con il solo totale. |
+| **Densità del nero** | 0, 1 o 2: alza se la stampa esce chiara, abbassa se sbava. |
+| **Copie per prodotto** | Quante etichette uguali stampare per ogni articolo. |
+| **Dimensione del testo (%)** | 100 è normale; alza per testi più grandi. |
+| **Margine sopra e sotto (punti)** | Spazio bianco ai bordi dell'etichetta. |
+| **Altezza delle barre** | Quanto sono alte le barre del codice a barre. |
+| **Nome / prezzo / barcode** | Le tre spunte decidono cosa finisce sull'etichetta. |
+
+Le impostazioni si salvano sul dispositivo che stai usando (computer o
+telefono), non nel negozio: la stampante di casa e quella in cassa possono
+quindi avere parametri diversi. L'anteprima si aggiorna mentre cambi i valori,
+così vedi subito se il nome va a capo o se il prezzo esce dal bordo. Se una
+stampa non parte, controlla che la Fichero sia accesa, che non sia collegata
+all'app del telefono nello stesso momento e che il rotolo sia inserito dal lato
+giusto.
 
 **📦 Inventario** apre il conteggio guidato: si scansiona quello che c'è nella
 scaffale e il programma calcola le differenze con la giacenza a sistema, poi
@@ -703,6 +772,8 @@ private sono:
 | `/ilmioarket` | **IlMioMarket**: carta fedeltà (codice a barre e QR), punti, coupon, ordini, dati del profilo, carrello salvato. |
 | `/prenota` | **Prenota un meeting** con il negozio. |
 | `/grattasubito` | **Gratta e vinci**: un biglietto al giorno (o quanti ne concedi). |
+| `/recensione` | **Recensioni**: i prodotti dello scontrino, con login oppure col solo numero dello scontrino. |
+| `/proponi` | **Proponi un prodotto**: chiedere di aggiungere o togliere un articolo, con login o come ospite. |
 | pannello del negozio | Cassa web, prodotti, clienti, coupon, offerte, ordini, promo, licenze, impostazioni e backup cloud. |
 
 Alla registrazione, se il cliente scrive il numero di una tessera che esiste già
@@ -724,6 +795,22 @@ automatico) e il **carrello salvato** tra una visita e l'altra.
 Tutto quello che il cliente muove qui arriva al programma con la
 sincronizzazione: se il cliente si iscrive dal sito, in cassa lo trovi già con
 il suo codice cliente.
+
+### Aggiungere al carrello con la fotocamera
+
+Nel **listino** (`/listaprodotti`), accanto alla ricerca, c'è il pulsante della
+**fotocamera**. Inquadri il prodotto — la confezione, il cartellino, l'etichetta
+dello scaffale — e premi lo scatto: il telefono legge il testo dell'immagine
+direttamente sul dispositivo (non serve nessun codice a barre e nessuna foto
+parte verso internet) e ti propone l'articolo del catalogo che corrisponde
+meglio. Scegli quello giusto, indichi i pezzi e finisce nel carrello come se
+l'avessi cercato a mano.
+
+È pensato per il telefono del cliente in negozio: funziona anche su prodotti
+senza barcode o con il codice illeggibile. La lettura è in italiano e in
+inglese; se il testo è piccolo o la foto mossa, rifai lo scatto più vicino e
+con più luce. Se nessun prodotto somiglia abbastanza, il pulsante te lo dice e
+resta la ricerca scritta.
 
 ---
 
@@ -967,6 +1054,67 @@ sito: senza sito il PDF esce come prima, senza QR.
 | Il totem non mostra un prodotto | Non è tra quelli scelti in Esperienza, oppure è a scorta zero. |
 | Il codice del premio non vale | Il coupon è scaduto (validità in giorni) o è già stato usato. |
 | Il QR non c'è sul PDF | Manca l'indirizzo del sito nelle impostazioni di sincronizzazione. |
+
+## 12-quater. Recensioni e proposte dei clienti
+
+Due pagine pubbliche e due schede del pannello, per sapere cosa pensano i
+clienti dei prodotti e cosa vorrebbero trovare in negozio.
+
+### `/recensione` — le stelle ai prodotti
+
+La pagina funziona in **due modi**, e si capisce subito quale stai usando.
+
+**Con il login.** Il cliente accede con l'account del negozio e vede **gli
+scontrini del suo profilo**, dal più recente, con la scritta *da recensire* su
+quelli ancora da giudicare. Sceglie lo scontrino, trova l'elenco dei prodotti
+che ha comprato e dà da 1 a 5 stelle a ognuno, con un commento facoltativo.
+Quando ha finito lo scontrino passa in *recensito*, così non lo vede più tra
+quelli da fare e non rischia di giudicare due volte lo stesso acquisto.
+
+**Senza login.** Il cliente scrive il **numero dello scontrino** (è stampato in
+cima allo scontrino, per esempio `2-0079`) e il suo **nome** per firmare. La
+ricerca è immediata: appena il numero è completo la pagina mostra i prodotti di
+quello scontrino in una sola lettura, senza attese e senza codice fiscale. Non
+si crea nessun account: il nome serve solo a mettere una firma alla recensione.
+
+In entrambi i casi:
+
+- si possono recensire **solo i prodotti di quello scontrino**: se un articolo
+  non c'è, la recensione viene rifiutata;
+- si può recensire **una volta sola** ogni prodotto di ogni scontrino: se ci
+  ripensi e rimandi, la recensione viene **aggiornata**, non duplicata;
+- chi non è collegato **non vede** il nome, l'email o i dati del cliente: vede
+  solo prodotti, quantità e totali;
+- se il numero è sbagliato la pagina lo dice chiaramente e ti invita a
+  controllarlo sullo scontrino.
+
+### `/proponi` — cosa manca sullo scaffale
+
+Il cliente può chiedere di **aggiungere** un prodotto che non trovi, o di
+**togliere** un articolo che non vuole più vedere. Con il login basta scegliere
+il prodotto dall'elenco (o scriverne uno nuovo) e inviare. Senza login servono
+**nome, cognome ed email**: servono a ricontattarlo, ma **non creano nessun
+account** — restano scritti nella proposta e basta.
+
+### Le schede del pannello — **Recensioni** e **Proposte**
+
+Nel pannello web, nel menu a sinistra:
+
+- **Recensioni** mostra tutte le recensioni ricevute con le stelle, il cliente,
+  il prodotto e la data; in alto ci sono la **media del negozio**, il numero di
+  recensioni, quanti prodotti hanno media sotto 3 e il **voto per prodotto**,
+  così vedi a colpo d'occhio cosa tira e cosa no. C'è la ricerca libera per
+  prodotto.
+- **Proposte** elenca le richieste dei clienti divise tra **nuove** e
+  **gestite**, con chi le ha lasciate (account o nome/cognome/email) e il
+  pulsante *Segna come gestita* (e *Riapri* se serve).
+
+Recensioni e proposte arrivano al gestionale con la **sincronizzazione**, come
+tutto il resto: quello che il cliente scrive dal sito è già in dashboard, e le
+schede si aggiornano con il pulsante di ricarica. La sincronizzazione è a due
+vie: non serve fare niente a mano.
+
+---
 
 ## 13. Sincronizzazione con il sito
 
