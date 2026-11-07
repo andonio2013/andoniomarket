@@ -272,13 +272,16 @@ alto diventa verde con la percentuale di batteria. Il collegamento resta buono
 finché la stampante è accesa: se si spegne, si ricollega con lo stesso pulsante.
 
 **L'etichetta gira nel verso giusto.** Le 50×14 mm si leggono con il **lato
-lungo in orizzontale**: il nome e il prezzo corrono lungo i 50 mm e il codice a
-barre sta a destra, con le barre alte circa 6 mm. È l'impostazione predefinita
-(*Orientamento dell'etichetta → Orizzontale*); l'opzione **Verticale** resta
-solo per chi ha un rotolo diverso o vuole il testo attraverso i 14 mm. In
-orizzontale il programma riconosce i codici del negozio a 8 cifre e li stampa
-come **EAN-8**, il formato più compatto: le barre restano larghe 0,25 mm e il
-lettore le prende al primo colpo. I codici più lunghi diventano Code128.
+lungo in orizzontale**: il nome e il prezzo stanno nella fascia in alto (nome a
+sinistra, prezzo a destra) e il **codice a barre è al centro esatto
+dell'etichetta**, con barre piene e alte circa 6 mm. Tutto viene disegnato dentro
+i margini, quindi la stampa non sborda sul foglietto successivo. È
+l'impostazione predefinita (*Orientamento dell'etichetta → Orizzontale*);
+l'opzione **Verticale** resta solo per chi ha un rotolo diverso o vuole il testo
+attraverso i 14 mm. In orizzontale il programma riconosce i codici del negozio a
+8 cifre e li stampa come **EAN-8**, il formato più compatto: le barre arrivano a
+0,375 mm (il doppio del formato vecchio) e il lettore le prende al primo colpo. I
+codici più lunghi diventano Code128.
 
 **Cosa si stampa.** La scheda ha due parti:
 
@@ -298,7 +301,7 @@ lettore le prende al primo colpo. I codici più lunghi diventano Code128.
 |---|---|
 | **Lunghezza etichetta (mm)** | Da 20 a 60 mm; per le 50×14 mm lascia 50. |
 | **Orientamento dell'etichetta** | *Orizzontale* per le 50×14 (testo lungo i 50 mm), *Verticale* per il vecchio formato. |
-| **Lunghezza talloncino totale (mm)** | Quanto deve essere lungo il talloncino con il solo totale: 50 per le 50×14. |
+| **Lunghezza talloncino totale (mm)** | Quanto deve essere lungo il talloncino con il solo totale: 50 per le 50×14. Non può superare la lunghezza dell'etichetta, altrimenti la stampa invade il foglietto successivo. |
 | **Densità del nero** | 0, 1 o 2: alza se la stampa esce chiara, abbassa se sbava. |
 | **Copie per prodotto** | Quante etichette uguali stampare per ogni articolo. |
 | **Dimensione del testo (%)** | 100 è normale; alza per testi più grandi. |
@@ -314,7 +317,6 @@ stampa non parte, controlla che la Fichero sia accesa, che non sia collegata
 all'app del telefono nello stesso momento e che il rotolo sia inserito dal lato
 giusto.
 
-![Etichette 50×14 in orizzontale: prodotto, prodotto al kg, talloncino del totale](immagini/etichetta-orizzontale.png)
 
 **📦 Inventario** apre il conteggio guidato: si scansiona quello che c'è nella
 scaffale e il programma calcola le differenze con la giacenza a sistema, poi
@@ -785,6 +787,7 @@ private sono:
 | `/prenota` | **Prenota un meeting** con il negozio. |
 | `/grattasubito` | **Gratta e vinci**: un biglietto al giorno (o quanti ne concedi). |
 | `/recensione` | **Recensioni**: i prodotti dello scontrino, con login oppure col solo numero dello scontrino. |
+| `/nostrerecensioni` | **Tutte le recensioni**: la vetrina pubblica, si legge senza account e senza registrarsi. |
 | `/proponi` | **Proponi un prodotto**: chiedere di aggiungere o togliere un articolo, con login o come ospite. |
 | pannello del negozio | Cassa web, prodotti, clienti, coupon, offerte, ordini, promo, licenze, impostazioni e backup cloud. |
 
@@ -1101,6 +1104,26 @@ In entrambi i casi:
   controllarlo sullo scontrino.
 
 ![La pagina /recensione vista dal telefono](immagini/sito-recensione.png)
+
+### `/nostrerecensioni` — la vetrina delle recensioni
+
+Una pagina **pubblica**, che si apre a chiunque: niente accesso, niente modulo,
+niente creazione di account. Serve al cliente che vuole farsi un'idea prima di
+comprare e a te che vuoi mostrare che il negozio ha clienti soddisfatti.
+
+Cosa si vede, nell'ordine:
+
+- **il voto medio** con le stelle e il numero di recensioni;
+- la **distribuzione** delle stelle (quante da 5, quante da 4 e così via), con
+  le barre e i conteggi;
+- i **prodotti più recensiti**, con la loro media;
+- **tutte le recensioni**, dalla più recente: stelle, prodotto, commento, firma
+  e data.
+
+La firma è **corta**: nome e iniziale del cognome (`Marco R.`). Il numero dello
+scontrino e l'email del cliente **non** compaiono mai. Non c'è niente da
+compilare: la pagina è solo da leggere, con i pulsanti per tornare al listino o
+per lasciare una recensione su `/recensione`.
 
 ### `/proponi` — cosa manca sullo scaffale
 
