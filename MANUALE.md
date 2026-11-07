@@ -295,7 +295,10 @@ sono alte, più è facile inquadrare il codice.
 
 **Perché non stampa due etichette.** Il disegno non occupa tutto il rotolo: la
 stampa è **47 mm su 50** e il contenuto comincia **3 mm dopo il bordo iniziale**
-dell'etichetta (*Inizio stampa*, regolabile da 0 a 8 mm). Così la testina non
+dell'etichetta (*Inizio stampa*, regolabile da 0 a 8 mm). **La prima cosa da
+controllare se escono due foglietti è *Lunghezza etichetta*: deve essere 50**
+(la stampa è lunga 47). Se lì c'è scritto 60 la stampa è lunga 57 mm e finisce
+sul foglietto dopo. Così la testina non
 arriva mai sul bordo e il sensore del rotolo trova lo spazio tra un foglietto e
 l'altro, senza trascinare anche quello dopo. Con i 3 mm di serie nome, prezzo e
 codice cadono **al centro esatto dei 50 mm** (centro a 25 mm), con la stessa
