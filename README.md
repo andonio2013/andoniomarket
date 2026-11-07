@@ -134,16 +134,17 @@ Le 50×14 si stampano **in orizzontale**: nome e prezzo nella fascia in alto e
 programma usa il formato più compatto per ogni codice, così barre e spazi
 restano grandi: **EAN-8** (barre da 0,5 mm) per i codici del negozio a 8 cifre,
 **EAN-13** (barre da 0,375 mm) per i codici dei prodotti del supermercato,
-Code128 per tutto il resto. La stampa è **47 mm su 50** con 5 mm di aria ai due lati: la testina non
-arriva sul bordo, quindi non stampa la seconda etichetta. Il talloncino del
-totale non può mai essere più lungo dell'etichetta. C'è anche l'opzione
-*Verticale* per rotoli diversi.
+Code128 per tutto il resto. La stampa è **47 mm su 50** e comincia **3 mm dopo
+il bordo iniziale** (*Inizio stampa*, 0–8 mm): la testina non arriva sul bordo e
+nome, prezzo e codice cadono centrati nei 50 mm. Il talloncino del totale non
+può mai essere più lungo dell'etichetta. C'è anche l'opzione *Verticale* per
+rotoli diversi.
 
 Tutti i **parametri sono regolabili** e restano salvati sul dispositivo:
 lunghezza dell'etichetta, orientamento, lunghezza del talloncino, densità del
-nero, copie per prodotto, dimensione del testo, margini, altezza delle barre (fino
-a 7,25 mm) e scelta di cosa stampare (nome, prezzo, barcode). L'anteprima si
-aggiorna mentre cambi i valori.
+nero, copie per prodotto, dimensione del testo, margini, inizio stampa, altezza
+delle barre (fino a 7,25 mm) e scelta di cosa stampare (nome, prezzo, barcode).
+L'anteprima si aggiorna mentre cambi i valori.
 
 ## Backup sul sito
 

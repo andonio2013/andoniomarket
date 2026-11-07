@@ -294,13 +294,13 @@ cifre. L'altezza delle barre si regola (di serie 58 punti, cioè 7,25 mm): più
 sono alte, più è facile inquadrare il codice.
 
 **Perché non stampa due etichette.** Il disegno non occupa tutto il rotolo: la
-stampa è **47 mm su 50** e il contenuto sta **5 mm dentro i due lati** (come
-lungo, 37 mm di spazio utile). Così la testina non arriva mai sul bordo
-dell'etichetta, il sensore del rotolo trova lo spazio tra un foglietto e l'altro
-e il cambio-etichetta non trascina anche quello dopo. Il risultato è che tutto
-— nome, prezzo e codice — cade **al centro** del foglietto. Se il rotolo è
-diverso da 50 mm, imposta la lunghezza in *Lunghezza etichetta*: il margine di
-sicurezza si adatta da solo.
+stampa è **47 mm su 50** e il contenuto comincia **3 mm dopo il bordo iniziale**
+dell'etichetta (*Inizio stampa*, regolabile da 0 a 8 mm). Così la testina non
+arriva mai sul bordo e il sensore del rotolo trova lo spazio tra un foglietto e
+l'altro, senza trascinare anche quello dopo. Con i 3 mm di serie nome, prezzo e
+codice cadono **al centro esatto dei 50 mm** (centro a 25 mm), con la stessa
+aria a destra e a sinistra. Se il rotolo è diverso da 50 mm, imposta la
+lunghezza in *Lunghezza etichetta*: il margine di sicurezza si adatta da solo.
 
 **Cosa si stampa.** La scheda ha due parti:
 
@@ -325,6 +325,7 @@ sicurezza si adatta da solo.
 | **Copie per prodotto** | Quante etichette uguali stampare per ogni articolo. |
 | **Dimensione del testo (%)** | 100 è normale; alza per testi più grandi. |
 | **Margine sopra e sotto (punti)** | Spazio bianco ai bordi dell'etichetta. |
+| **Inizio stampa (mm)** | Quanti millimetri di aria prima che la testina cominci a stampare: 3 di serie. Alzalo se la stampa parte troppo vicina al bordo iniziale; ogni millimetro toglie spazio alle barre. |
 | **Altezza delle barre** | Quanto sono lunghe le barre del codice (58 punti = 7,25 mm). Più alte = scansione più facile; il massimo dipende dal margine scelto. |
 | **Nome / prezzo / barcode** | Le tre spunte decidono cosa finisce sull'etichetta. |
 
