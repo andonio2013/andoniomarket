@@ -318,8 +318,8 @@ La pagina `/recensione` funziona in due modi: chi ha l'account vede gli scontrin
 del proprio profilo e giudica i prodotti che ha comprato; chi non vuole accedere
 scrive il **numero dello scontrino** (per esempio `2-0079`) e il proprio nome. La
 ricerca è immediata e mostra solo i prodotti di quello scontrino, senza mai
-mostrare i dati del cliente a chi non è collegato. Recensioni e proposte sono
-sincronizzate con il gestionale, quindi si vedono anche dal programma.
+mostrare i dati del cliente a chi non è collegato. Recensioni e proposte restano
+sul sito e si leggono dal pannello web, aggiornate in tempo reale.
 
 ## Ruoli con limiti e seconda cassa
 
