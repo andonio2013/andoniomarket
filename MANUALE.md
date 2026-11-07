@@ -274,14 +274,22 @@ finché la stampante è accesa: se si spegne, si ricollega con lo stesso pulsant
 **L'etichetta gira nel verso giusto.** Le 50×14 mm si leggono con il **lato
 lungo in orizzontale**: il nome e il prezzo stanno nella fascia in alto (nome a
 sinistra, prezzo a destra) e il **codice a barre è al centro esatto
-dell'etichetta**, con barre piene e alte circa 6 mm. Tutto viene disegnato dentro
-i margini, quindi la stampa non sborda sul foglietto successivo. È
-l'impostazione predefinita (*Orientamento dell'etichetta → Orizzontale*);
-l'opzione **Verticale** resta solo per chi ha un rotolo diverso o vuole il testo
-attraverso i 14 mm. In orizzontale il programma riconosce i codici del negozio a
-8 cifre e li stampa come **EAN-8**, il formato più compatto: le barre arrivano a
-0,375 mm (il doppio del formato vecchio) e il lettore le prende al primo colpo. I
-codici più lunghi diventano Code128.
+dell'etichetta**, con barre piene e alte circa 6 mm. È l'impostazione predefinita
+(*Orientamento dell'etichetta → Orizzontale*); l'opzione **Verticale** resta solo
+per chi ha un rotolo diverso o vuole il testo attraverso i 14 mm. In orizzontale
+il programma riconosce i codici del negozio a 8 cifre e li stampa come **EAN-8**,
+il formato più compatto: le barre arrivano a 0,375 mm (il doppio del formato
+vecchio) e il lettore le prende al primo colpo. I codici più lunghi diventano
+Code128.
+
+**Perché non stampa due etichette.** Il disegno non occupa tutto il rotolo: la
+stampa è **47 mm su 50** e il contenuto sta **5 mm dentro i due lati** (come
+lungo, 37 mm di spazio utile). Così la testina non arriva mai sul bordo
+dell'etichetta, il sensore del rotolo trova lo spazio tra un foglietto e l'altro
+e il cambio-etichetta non trascina anche quello dopo. Il risultato è che tutto
+— nome, prezzo e codice — cade **al centro** del foglietto. Se il rotolo è
+diverso da 50 mm, imposta la lunghezza in *Lunghezza etichetta*: il margine di
+sicurezza si adatta da solo.
 
 **Cosa si stampa.** La scheda ha due parti:
 
