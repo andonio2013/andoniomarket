@@ -130,18 +130,20 @@ leggibile in cassa; dalla stessa scheda si stampa anche il **talloncino del
 totale** di uno scontrino, con negozio, numero, data, pezzi e totale in grande.
 
 Le 50×14 si stampano **in orizzontale**: nome e prezzo nella fascia in alto e
-**codice a barre al centro esatto** dell'etichetta. Con otto cifre il codice
-diventa **EAN-8** con barre da 0,375 mm (lette al primo colpo), altrimenti
-Code128. La stampa è **47 mm su 50** con 5 mm di aria ai due lati: la testina non
+**codice a barre al centro esatto** dell'etichetta, con barre alte 7,25 mm. Il
+programma usa il formato più compatto per ogni codice, così barre e spazi
+restano grandi: **EAN-8** (barre da 0,5 mm) per i codici del negozio a 8 cifre,
+**EAN-13** (barre da 0,375 mm) per i codici dei prodotti del supermercato,
+Code128 per tutto il resto. La stampa è **47 mm su 50** con 5 mm di aria ai due lati: la testina non
 arriva sul bordo, quindi non stampa la seconda etichetta. Il talloncino del
 totale non può mai essere più lungo dell'etichetta. C'è anche l'opzione
 *Verticale* per rotoli diversi.
 
 Tutti i **parametri sono regolabili** e restano salvati sul dispositivo:
 lunghezza dell'etichetta, orientamento, lunghezza del talloncino, densità del
-nero, copie per prodotto, dimensione del testo, margini, altezza delle barre e
-scelta di cosa stampare (nome, prezzo, barcode). L'anteprima si aggiorna mentre
-cambi i valori.
+nero, copie per prodotto, dimensione del testo, margini, altezza delle barre (fino
+a 7,25 mm) e scelta di cosa stampare (nome, prezzo, barcode). L'anteprima si
+aggiorna mentre cambi i valori.
 
 ## Backup sul sito
 

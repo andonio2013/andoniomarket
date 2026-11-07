@@ -274,13 +274,24 @@ finché la stampante è accesa: se si spegne, si ricollega con lo stesso pulsant
 **L'etichetta gira nel verso giusto.** Le 50×14 mm si leggono con il **lato
 lungo in orizzontale**: il nome e il prezzo stanno nella fascia in alto (nome a
 sinistra, prezzo a destra) e il **codice a barre è al centro esatto
-dell'etichetta**, con barre piene e alte circa 6 mm. È l'impostazione predefinita
-(*Orientamento dell'etichetta → Orizzontale*); l'opzione **Verticale** resta solo
-per chi ha un rotolo diverso o vuole il testo attraverso i 14 mm. In orizzontale
-il programma riconosce i codici del negozio a 8 cifre e li stampa come **EAN-8**,
-il formato più compatto: le barre arrivano a 0,375 mm (il doppio del formato
-vecchio) e il lettore le prende al primo colpo. I codici più lunghi diventano
-Code128.
+dell'etichetta**, con barre piene e alte circa 7 mm. È l'impostazione
+predefinita (*Orientamento dell'etichetta → Orizzontale*); l'opzione **Verticale**
+resta solo per chi ha un rotolo diverso o vuole il testo attraverso i 14 mm.
+
+**Le barre sono larghe apposta.** In orizzontale il programma usa il formato
+più compatto che il codice permette, così barre e spazi restano grandi e lo
+scanner li prende al primo colpo:
+
+- codici del negozio a 8 cifre → **EAN-8** (67 moduli): barre da **0,5 mm**;
+- codici dei prodotti del supermercato a 13 cifre → **EAN-13** (95 moduli):
+  barre da **0,375 mm**, mentre lo stesso codice in Code128 ne userebbe quasi
+  il doppio dello spazio con barre sottilissime;
+- tutto il resto → **Code128**.
+
+Un EAN-13 viene stampato solo se la cifra di controllo è giusta: se il codice
+è sbagliato si ripiega sul Code128, che legge comunque qualunque sequenza di
+cifre. L'altezza delle barre si regola (di serie 58 punti, cioè 7,25 mm): più
+sono alte, più è facile inquadrare il codice.
 
 **Perché non stampa due etichette.** Il disegno non occupa tutto il rotolo: la
 stampa è **47 mm su 50** e il contenuto sta **5 mm dentro i due lati** (come
@@ -314,7 +325,7 @@ sicurezza si adatta da solo.
 | **Copie per prodotto** | Quante etichette uguali stampare per ogni articolo. |
 | **Dimensione del testo (%)** | 100 è normale; alza per testi più grandi. |
 | **Margine sopra e sotto (punti)** | Spazio bianco ai bordi dell'etichetta. |
-| **Altezza delle barre** | Quanto sono lunghe le barre del codice (52 punti = 6,5 mm). |
+| **Altezza delle barre** | Quanto sono lunghe le barre del codice (58 punti = 7,25 mm). Più alte = scansione più facile; il massimo dipende dal margine scelto. |
 | **Nome / prezzo / barcode** | Le tre spunte decidono cosa finisce sull'etichetta. |
 
 Le impostazioni si salvano sul dispositivo che stai usando (computer o
