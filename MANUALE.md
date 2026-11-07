@@ -1113,10 +1113,10 @@ Nel pannello web, nel menu a sinistra:
   **gestite**, con chi le ha lasciate (account o nome/cognome/email) e il
   pulsante *Segna come gestita* (e *Riapri* se serve).
 
-Recensioni e proposte arrivano al gestionale con la **sincronizzazione**, come
-tutto il resto: quello che il cliente scrive dal sito è già in dashboard, e le
-schede si aggiornano con il pulsante di ricarica. La sincronizzazione è a due
-vie: non serve fare niente a mano.
+Recensioni e proposte vivono sul sito, non sul computer della cassa: quello che
+il cliente scrive è già nelle due schede del pannello, senza nessuna operazione
+da fare. Le schede si aggiornano con il pulsante di ricarica e le recensioni non
+si possono cancellare per sbaglio: restano come storico del negozio.
 
 ---
 
