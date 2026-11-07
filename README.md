@@ -61,6 +61,9 @@ Il programma si collega al sito del negozio:
 - **Listino online** (`/listaprodotti`): tutti i prodotti con prezzo, prezzo scontato e disponibilità, riservato ai clienti registrati.
 - **IlMioMarket**: l'area personale del cliente con la **carta fedeltà** (codice a barre EAN-8), i punti, i dati del profilo e il carrello salvato. Alla registrazione, se il numero di carta esiste già, l'account viene collegato a quel cliente e ai suoi punti.
 - **Ordini con ritiro**: il cliente ordina dal sito, riceve un codice a barre e lo mostra alla cassa; il negozio vede l'ordine nel pannello e lo segna pronto o ritirato.
+- **Carrello dalla fotocamera**: nel listino il cliente inquadra il prodotto col telefono e lo aggiunge al carrello; il testo viene letto sul dispositivo, senza barcode e senza inviare la foto a Internet.
+- **Recensioni** (`/recensione`): con il login il cliente giudica i prodotti dei suoi scontrini; senza login basta il numero dello scontrino e il proprio nome. Una recensione per prodotto e scontrino, modificabile.
+- **Proposte** (`/proponi`): il cliente chiede di aggiungere o togliere un prodotto. Con il login basta selezionare; senza login lascia nome, cognome ed email (non si crea nessun account).
 - **Promozioni via email**: dal pannello si invia un avviso con le promozioni della giornata o un testo personalizzato, a tutti i clienti o solo ad alcuni.
 - **Clienti**: il negoziante vede i clienti registrati e la loro email e può assegnare una nuova password oppure chiederne il cambio al prossimo accesso.
 
@@ -95,12 +98,40 @@ da premere **Emetti documento**. Dopo lo scontrino l'ordine passa a *Ritirato*,
 con il numero del documento. Se un prodotto non è più in catalogo viene segnalato
 e le altre righe si caricano comunque.
 
+## Tipologie di prodotto e codici mai doppi
+
+Ogni articolo ha una **tipologia**: *Confezione (a pezzo)*, *A peso (al kg)*,
+*Sfuso (al kg)*, *Servizio* e *Kit / confezione multipla*. Dice come si vende in
+cassa e come va trattato in magazzino e in etichetta, e viaggia nella
+sincronizzazione con il resto della scheda.
+
+Se lasci vuoto il barcode, il programma genera un codice di 8 cifre che parte da
+**2** e **verifica che non sia già usato** da un altro prodotto o da una tessera,
+ripetendo la generazione finché non trova un codice libero. Anche un barcode
+scritto a mano viene controllato: se è già in catalogo il salvataggio si ferma
+con un messaggio chiaro, quindi non possono nascere due articoli con lo stesso
+codice.
+
 ## Etichette prezzo
 
 Da **Prodotti → 🏷️ Etichette prezzo (PDF A4)** si stampano cartellini con nome,
 prezzo, nome del negozio e codice a barre Code128, tre per riga su A4. Si può
 scegliere fra i prodotti selezionati, tutti o solo quelli sotto scorta minima, e
 quante copie per prodotto.
+
+### Stampante Fichero (etichette 50×14 mm)
+
+Con la piccola stampante **Fichero** il pannello web stampa le etichette
+direttamente in Bluetooth, senza passare dal PDF: si collega la stampante dalla
+scheda **Etichette** (serve Chrome o Edge, su computer o Android), si scelgono i
+prodotti e si stampa. Ogni etichetta porta nome, prezzo e **codice a barre**
+leggibile in cassa; dalla stessa scheda si stampa anche il **talloncino del
+totale** di uno scontrino, con negozio, numero, data, pezzi e totale in grande.
+
+Tutti i **parametri sono regolabili** e restano salvati sul dispositivo:
+lunghezza dell'etichetta, altezza del talloncino, densità del nero, copie per
+prodotto, dimensione del testo, margini, altezza delle barre e scelta di cosa
+stampare (nome, prezzo, barcode). L'anteprima si aggiorna mentre cambi i valori.
 
 ## Backup sul sito
 
@@ -273,6 +304,22 @@ Si paga in tre modi: **numero + PIN + CVC**, **codice monouso di 8 cifre**
 addebito dal pannello. Funziona nella cassa desktop, nel POS web e nel
 self-checkout; il saldo lo muove il sito, quindi cassa, web e area cliente
 restano sempre allineati e sullo scontrino compare il saldo rimasto.
+
+## Recensioni e proposte in dashboard
+
+Nel pannello web ci sono due schede nuove. **Recensioni** raccoglie tutte le
+stelle ricevute, con media del negozio, numero di recensioni, prodotti sotto la
+media di 3 e **voto per prodotto**; la ricerca è libera per prodotto. **Proposte**
+elenca le richieste dei clienti divise tra *nuove* e *gestite*, con chi le ha
+lasciate (account oppure nome, cognome ed email) e il pulsante per segnarle come
+gestite o riaprirle.
+
+La pagina `/recensione` funziona in due modi: chi ha l'account vede gli scontrini
+del proprio profilo e giudica i prodotti che ha comprato; chi non vuole accedere
+scrive il **numero dello scontrino** (per esempio `2-0079`) e il proprio nome. La
+ricerca è immediata e mostra solo i prodotti di quello scontrino, senza mai
+mostrare i dati del cliente a chi non è collegato. Recensioni e proposte sono
+sincronizzate con il gestionale, quindi si vedono anche dal programma.
 
 ## Ruoli con limiti e seconda cassa
 
