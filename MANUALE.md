@@ -1088,6 +1088,8 @@ In entrambi i casi:
 - se il numero è sbagliato la pagina lo dice chiaramente e ti invita a
   controllarlo sullo scontrino.
 
+![La pagina /recensione vista dal telefono](immagini/sito-recensione.png)
+
 ### `/proponi` — cosa manca sullo scaffale
 
 Il cliente può chiedere di **aggiungere** un prodotto che non trovi, o di
@@ -1095,6 +1097,8 @@ Il cliente può chiedere di **aggiungere** un prodotto che non trovi, o di
 il prodotto dall'elenco (o scriverne uno nuovo) e inviare. Senza login servono
 **nome, cognome ed email**: servono a ricontattarlo, ma **non creano nessun
 account** — restano scritti nella proposta e basta.
+
+![La pagina /proponi vista dal telefono](immagini/sito-proponi.png)
 
 ### Le schede del pannello — **Recensioni** e **Proposte**
 
