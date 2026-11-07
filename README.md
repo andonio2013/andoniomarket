@@ -128,10 +128,16 @@ prodotti e si stampa. Ogni etichetta porta nome, prezzo e **codice a barre**
 leggibile in cassa; dalla stessa scheda si stampa anche il **talloncino del
 totale** di uno scontrino, con negozio, numero, data, pezzi e totale in grande.
 
+Le 50×14 si stampano **in orizzontale**: nome e prezzo corrono lungo i 50 mm e
+il codice a barre sta a destra, come EAN-8 quando le cifre sono otto (barre da
+0,25 mm, lette al primo colpo) e come Code128 per i codici più lunghi. C'è anche
+l'opzione *Verticale* per rotoli diversi.
+
 Tutti i **parametri sono regolabili** e restano salvati sul dispositivo:
-lunghezza dell'etichetta, altezza del talloncino, densità del nero, copie per
-prodotto, dimensione del testo, margini, altezza delle barre e scelta di cosa
-stampare (nome, prezzo, barcode). L'anteprima si aggiorna mentre cambi i valori.
+lunghezza dell'etichetta, orientamento, lunghezza del talloncino, densità del
+nero, copie per prodotto, dimensione del testo, margini, altezza delle barre e
+scelta di cosa stampare (nome, prezzo, barcode). L'anteprima si aggiorna mentre
+cambi i valori.
 
 ## Backup sul sito
 

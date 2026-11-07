@@ -271,6 +271,15 @@ Bluetooth delle pagine web non è disponibile). Nella scheda **Etichette** premi
 alto diventa verde con la percentuale di batteria. Il collegamento resta buono
 finché la stampante è accesa: se si spegne, si ricollega con lo stesso pulsante.
 
+**L'etichetta gira nel verso giusto.** Le 50×14 mm si leggono con il **lato
+lungo in orizzontale**: il nome e il prezzo corrono lungo i 50 mm e il codice a
+barre sta a destra, con le barre alte circa 6 mm. È l'impostazione predefinita
+(*Orientamento dell'etichetta → Orizzontale*); l'opzione **Verticale** resta
+solo per chi ha un rotolo diverso o vuole il testo attraverso i 14 mm. In
+orizzontale il programma riconosce i codici del negozio a 8 cifre e li stampa
+come **EAN-8**, il formato più compatto: le barre restano larghe 0,25 mm e il
+lettore le prende al primo colpo. I codici più lunghi diventano Code128.
+
 **Cosa si stampa.** La scheda ha due parti:
 
 - **Etichette dei prodotti** — scegli i prodotti (ricerca per nome o barcode, o
@@ -288,12 +297,13 @@ finché la stampante è accesa: se si spegne, si ricollega con lo stesso pulsant
 | Parametro | A cosa serve |
 |---|---|
 | **Lunghezza etichetta (mm)** | Da 20 a 60 mm; per le 50×14 mm lascia 50. |
-| **Altezza talloncino totale (mm)** | Quanto deve essere lungo il talloncino con il solo totale. |
+| **Orientamento dell'etichetta** | *Orizzontale* per le 50×14 (testo lungo i 50 mm), *Verticale* per il vecchio formato. |
+| **Lunghezza talloncino totale (mm)** | Quanto deve essere lungo il talloncino con il solo totale: 50 per le 50×14. |
 | **Densità del nero** | 0, 1 o 2: alza se la stampa esce chiara, abbassa se sbava. |
 | **Copie per prodotto** | Quante etichette uguali stampare per ogni articolo. |
 | **Dimensione del testo (%)** | 100 è normale; alza per testi più grandi. |
 | **Margine sopra e sotto (punti)** | Spazio bianco ai bordi dell'etichetta. |
-| **Altezza delle barre** | Quanto sono alte le barre del codice a barre. |
+| **Altezza delle barre** | Quanto sono lunghe le barre del codice (52 punti = 6,5 mm). |
 | **Nome / prezzo / barcode** | Le tre spunte decidono cosa finisce sull'etichetta. |
 
 Le impostazioni si salvano sul dispositivo che stai usando (computer o
@@ -303,6 +313,8 @@ così vedi subito se il nome va a capo o se il prezzo esce dal bordo. Se una
 stampa non parte, controlla che la Fichero sia accesa, che non sia collegata
 all'app del telefono nello stesso momento e che il rotolo sia inserito dal lato
 giusto.
+
+![Etichette 50×14 in orizzontale: prodotto, prodotto al kg, talloncino del totale](immagini/etichetta-orizzontale.png)
 
 **📦 Inventario** apre il conteggio guidato: si scansiona quello che c'è nella
 scaffale e il programma calcola le differenze con la giacenza a sistema, poi
