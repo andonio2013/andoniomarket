@@ -316,6 +316,15 @@ lunghezza in *Lunghezza etichetta*: il margine di sicurezza si adatta da solo.
   uno scontrino e premi *Stampa totale*. Così attacchi il talloncino sulla
   busta o sul pacco del cliente senza ristampare lo scontrino intero.
 
+**Modelli pronti e rotoli.** In cima a *Impostazioni di stampa* ci sono i
+modelli: **50×14 standard**, **50×14 con lotto e scadenza**, **50×14 con QR**,
+**50×14 solo nome e prezzo** e **40×14 corta**. Un tocco e l'etichetta è
+impostata come si deve per quel rotolo. Se poi cambi qualcosa a mano, scrivi un
+nome nel campo *Nome del rotolo* (per esempio «Etichette banco») e premi **Salva
+rotolo**: le tue impostazioni restano lì con quel nome, pronte da richiamare con
+un tocco. I rotoli salvati si eliminano con la × accanto al nome e valgono per
+quel dispositivo.
+
 **I parametri sono tuoi.** In *Impostazioni di stampa*, dentro la scheda
 **Etichette**, si regola tutto:
 
@@ -331,6 +340,43 @@ lunghezza in *Lunghezza etichetta*: il margine di sicurezza si adatta da solo.
 | **Inizio stampa (mm)** | Quanti millimetri di aria prima che la testina cominci a stampare: 3 di serie. Alzalo se la stampa parte troppo vicina al bordo iniziale; ogni millimetro toglie spazio alle barre. |
 | **Altezza delle barre** | Quanto sono lunghe le barre del codice (58 punti = 7,25 mm). Più alte = scansione più facile; il massimo dipende dal margine scelto. |
 | **Nome / prezzo / barcode** | Le tre spunte decidono cosa finisce sull'etichetta. |
+| **Lotto / Scadenza** | Stampa sotto il nome il lotto e la scadenza scritti nei campi qui sotto (es. `Lotto L2601 · Scad. 31/12/2026`). Se un prodotto non ha quei dati la riga non compare. |
+| **QR accanto al codice** | Aggiunge un QR a destra, alto quanto l'etichetta: nel campo *Testo del QR* puoi mettere il link al prodotto, altrimenti il QR contiene il codice a barre. |
+
+**Lotto e scadenza.** Scrivi il lotto nel campo *Lotto* e scegli la data in
+*Scadenza*: sull'etichetta diventano una riga sola sotto il nome, in formato
+giorno/mese/anno (`Scad. 31/12/2026`). Con la riga in più le barre si
+accorciano da sole per fare posto: se vuoi barre più alte spegni la spunta
+*Lotto* o *Scadenza* finché non ti serve.
+
+**QR accanto al codice.** Con la spunta *QR accanto al codice* il codice a
+barre resta a sinistra, al centro del suo spazio, e a destra compare un QR alto
+quanto l'etichetta. Nel campo *Testo del QR* puoi mettere un link
+(`https://...`): il cliente lo inquadra col telefono e arriva alla pagina del
+prodotto. Se lo lasci vuoto il QR contiene il codice del prodotto, così lo
+legge anche un lettore 2D quando il codice a barre è rovinato. Attenzione: su
+50 mm il QR si mangia un quarto dell'etichetta, quindi le barre diventano più
+fitte — l'anteprima te lo dice.
+
+**Etichetta a peso.** La scheda *Etichetta a peso* serve per frutta, salumi e
+sfusi: scegli il prodotto, scrivi il peso in chili (per esempio `0,450`) e, se
+vuoi, il prezzo al chilo (vuoto = quello del prodotto). Il prezzo grande è il
+**totale del pezzo** e sotto resta scritto `0,450 kg × 12,90 €/kg`, così il
+cliente vede come è stato calcolato. Il totale si aggiorna mentre scrivi e si
+stampa con un pulsante.
+
+**Gli avvisi prima della stampa.** Sotto l'anteprima compaiono gli avvisi in
+ambra, così non stampi dieci foglietti illeggibili:
+
+- *Barre fitte* o *barre troppo fitte* — il codice occupa troppo spazio per la
+  larghezza dell'etichetta (succede con il QR acceso e un codice a 13 cifre):
+  togli il QR o usa un codice a 8 cifre;
+- *Barre basse* — lotto, scadenza e peso hanno mangiato spazio alle barre;
+- *QR piccolo* — inquadralo da vicino o libera spazio spegnendo un dettaglio.
+
+Sulla barra della stampante, se la batteria scende sotto il **20%**, compare un
+avviso rosso: ricarica la Fichero, altrimenti la stampa si può fermare a metà
+etichetta.
 
 Le impostazioni si salvano sul dispositivo che stai usando (computer o
 telefono), non nel negozio: la stampante di casa e quella in cassa possono
