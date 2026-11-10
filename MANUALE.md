@@ -370,6 +370,34 @@ vuoi, il prezzo al chilo (vuoto = quello del prodotto). Il prezzo grande è il
 cliente vede come è stato calcolato. Il totale si aggiorna mentre scrivi e si
 stampa con un pulsante.
 
+**Un prodotto nuovo, un passaggio solo.** Quando crei un prodotto e lasci
+vuoto il campo *Barcode*, il programma genera un **EAN-8 univoco** (controllato
+sul database, quindi mai doppio) e — se la spunta **🏷️ Stampa subito
+l'etichetta del codice generato** è attiva — **stampa l'etichetta nello stesso
+salvataggio**. Non serve riaprire la scheda per un secondo giro: metti il nome,
+il prezzo e salvi; dalla Fichero esce già l'etichetta col codice nuovo. Se la
+stampante non è collegata il prodotto si salva lo stesso e il messaggio ti
+ricorda di collegarla.
+
+**Ristampare le etichette di uno scontrino.** Nella scheda **Etichette**, sotto
+il talloncino del totale, trovi i prodotti dello scontrino trovato: spunta
+quelli che ti servono e premi **🏷️ Stampa le etichette dei prodotti**. Ogni
+riga porta una copia per pezzo (fino al massimo di copie impostato sopra) e
+l'etichetta usa nome, prezzo e codice del prodotto, con lotto, scadenza e QR
+della scheda. Serve quando un articolo arriva senza etichetta, quando quella
+originale si è rovinata o quando il cliente torna a chiedere una copia: basta
+il numero dello scontrino, senza ricercare i prodotti uno per uno.
+
+**Il registro di stampa.** Ogni etichetta stampata (prodotto, totale,
+scontrino, peso) lascia una riga nel **Registro di stampa**, in fondo alla
+scheda *Etichette*: quando, cosa, chi l'ha stampata e quante copie. In cima
+c'è il conto di oggi e il totale. Il pulsante **↺** accanto a una riga
+**ristampa quell'etichetta identica**, con le stesse misure e gli stessi dati
+di allora, anche se nel frattempo hai cambiato prodotto o impostazioni: è la
+funzione che serve quando sei in fila alla cassa e devi rifare l'ultima
+etichetta con un tocco. Il registro tiene le ultime 2.000 stampe e si vede solo
+a chi ha il permesso di leggere i report.
+
 **Gli avvisi prima della stampa.** Sotto l'anteprima compaiono gli avvisi in
 ambra, così non stampi dieci foglietti illeggibili:
 

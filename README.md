@@ -146,6 +146,12 @@ nero, copie per prodotto, dimensione del testo, margini, inizio stampa, altezza
 delle barre (fino a 7,25 mm) e scelta di cosa stampare (nome, prezzo, barcode).
 L'anteprima si aggiorna mentre cambi i valori.
 
+Ogni stampa lascia una riga nel **registro di stampa** (quando, cosa, chi,
+quante copie) e con il pulsante **↺** l'etichetta si rifà identica, con le
+stesse misure. Dallo scontrino trovato si spuntano i prodotti e si ristampano
+le loro etichette, una copia per pezzo. Un prodotto nuovo senza barcode riceve
+un **EAN-8 univoco** e, se vuoi, l'etichetta esce già nello stesso salvataggio.
+
 ## Backup sul sito
 
 In **Impostazioni & Backup → ☁️ Backup sul sito** il programma carica una volta al
