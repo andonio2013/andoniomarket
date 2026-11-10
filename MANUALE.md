@@ -315,6 +315,12 @@ lunghezza in *Lunghezza etichetta*: il margine di sicurezza si adatta da solo.
   data, pezzi e **totale in grande**. Si prepara da **Storico documenti**: apri
   uno scontrino e premi *Stampa totale*. Così attacchi il talloncino sulla
   busta o sul pacco del cliente senza ristampare lo scontrino intero.
+  Il talloncino è **sempre lungo come l'etichetta**: una stampa più corta non
+  porta il rotolo al foglietto successivo e le stampe dopo escono sfalsate. Il
+  disegno si adatta da solo alla lunghezza scelta: con l'etichetta larga due
+  colonne (dettagli a sinistra, importo a destra), con un rotolo corto tutto
+  centrato su tre righe, con l'importo rimpicciolito quanto serve per non
+  uscire mai dal bordo.
 
 **Modelli pronti e rotoli.** In cima a *Impostazioni di stampa* ci sono i
 modelli: **50×14 standard**, **50×14 con lotto e scadenza**, **50×14 con QR**,
@@ -330,9 +336,8 @@ quel dispositivo.
 
 | Parametro | A cosa serve |
 |---|---|
-| **Lunghezza etichetta (mm)** | Da 20 a 60 mm; per le 50×14 mm lascia 50. |
+| **Lunghezza etichetta (mm)** | Da **10 a 120 mm**, libera: per le 50×14 mm lascia 50. È la misura del lato lungo del rotolo. |
 | **Orientamento dell'etichetta** | *Orizzontale* per le 50×14 (testo lungo i 50 mm), *Verticale* per il vecchio formato. |
-| **Lunghezza talloncino totale (mm)** | Quanto deve essere lungo il talloncino con il solo totale: 50 per le 50×14. Non può superare la lunghezza dell'etichetta, altrimenti la stampa invade il foglietto successivo. |
 | **Densità del nero** | 0, 1 o 2: alza se la stampa esce chiara, abbassa se sbava. |
 | **Copie per prodotto** | Quante etichette uguali stampare per ogni articolo. |
 | **Dimensione del testo (%)** | 100 è normale; alza per testi più grandi. |
