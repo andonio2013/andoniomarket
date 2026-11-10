@@ -1363,15 +1363,22 @@ Il sito può mandare una notifica sul telefono del cliente, **anche ad app
 chiusa**. Funziona su Android, su computer e su iPhone (da iOS 16.4, con il sito
 installato nella schermata Home).
 
+Il cliente le accende da solo con il **campanello** in alto nella vetrina
+`/prodotti` (nella testata, accanto alla lingua): il browser chiede il permesso
+una volta e il pulsante diventa «Avvisi attivi». Da lì può anche spegnerle, e
+con il login le notifiche restano legate al suo account.
+
 Nella scheda **Notifiche** del pannello:
 
 - **Chi è iscritto**: il numero di dispositivi, la data dell'ultima notifica e
   il cliente collegato, se c'è. Non serve nessuna chiave da copiare: le chiavi
   del servizio push nascono da sole al primo uso e restano sul server.
-- **Notifiche automatiche**: due interruttori. *Ordine pronto* avvisa il cliente
-  quando in **Ordini** segni il suo ordine come pronto (se ha l'email o
-  l'account collegato). *Offerte del giorno* manda una notifica al giorno quando
-escono le offerte, una sola anche se le offerte sono dieci.
+- **Notifiche automatiche**: due interruttori. *Ordine pronto* avvisa i
+dispositivi collegati all'account del cliente quando in **Ordini** segni il suo
+ordine come pronto; chi ordina da ospite non ha un account a cui legare la
+notifica e riceve la conferma per email. *Offerte del giorno* manda una
+notifica a tutti gli iscritti, una sola al giorno anche se le offerte sono
+dieci.
 - **Notifica a mano**: titolo, testo e pagina da aprire al tocco (per esempio
   `/prodotti` o `/prodotti/<codice>`). Parte subito a tutti gli iscritti e resta
 nello storico con quanti l'hanno ricevuta e quanti errori ci sono stati.
