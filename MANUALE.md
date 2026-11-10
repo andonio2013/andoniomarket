@@ -1017,6 +1017,7 @@ arriva all'altro alla prima sincronizzazione, e vale anche per le altre casse.
 | **Ruota della fortuna** | Oltre la soglia di spesa che decidi tu, il cliente gira e vince un premio | scheda Esperienza → 🎡 Ruota |
 | **Totem ordini** | Il cliente sceglie i prodotti che hai messo a disposizione e riceve un codice di ritiro | `/totem` sul monitor o dal suo telefono |
 | **Vetrina** | Catalogo da sfogliare per reparto, con prezzi e offerte | `/vetrina` |
+| **Vetrina prodotti** | La pagina pubblica di ogni articolo, col suo link e il QR da stampare | `/prodotti` e `/prodotti/<codice>` |
 | **Giudizio e Google** | Il cliente vota da 1 a 5 stelle; se è contento lo porti alla recensione | QR sullo scontrino o `/feedback` |
 
 ### Lo schermo cliente
@@ -1133,6 +1134,75 @@ scontato quando c'è un'offerta. Non vende: serve a far scoprire quello che il
 cliente non stava cercando. Si apre con `/vetrina` o da **Esperienza → 🪟
 Vetrina**.
 
+### La vetrina prodotti (`/prodotti`)
+
+Ogni articolo ha una pagina sua: `/prodotti/8711568117650` (il codice a barre)
+oppure `/prodotti/<id>`. La apri dal telefono, la metti su un'etichetta, la
+mandi a un cliente su WhatsApp. L'elenco completo è `/prodotti`.
+
+La pagina mostra nome, reparto, prezzo vero (sconto temporaneo, offerta del
+giorno col codice da dire in cassa, altrimenti listino), disponibilità,
+descrizione, foto se ce l'hai, i pulsanti **Chiama** e **WhatsApp**, il codice
+prodotto e il **QR** della pagina stessa.
+
+La gestisci tutta tu dalla dashboard: **Vetrina prodotti** (tab con l'icona dei
+prodotti).
+
+- **Aperta / spenta**: con la vetrina spenta i link rispondono «questo prodotto
+  non è più in vetrina», utile mentre sistemi prezzi e foto.
+- **Chi entra**: *tutti i prodotti*, *solo quelli in offerta* (entrano ed
+  escono da soli con gli sconti attivi e le offerte del giorno) oppure *solo
+  quelli che scelgo io* (spunta nella tabella).
+- **Ordine**: *offerte del giorno davanti* (predefinito), *ordine manuale* col
+  numero di posizione, nome A→Z, prezzo crescente o decrescente, reparto.
+- **Titolo, sottotitolo e telefono**: il telefono alimenta i pulsanti Chiama e
+  WhatsApp di ogni scheda.
+- **Scheda del prodotto** (✏️): descrizione fino a 600 caratteri e indirizzo
+  di una foto già online. Senza foto compare una mattonella colorata col nome.
+
+La vetrina prodotti si gestisce dal pannello web, così è la stessa per tutti i
+clienti. Ricorda di premere **Salva e pubblica**: le modifiche restano in
+anteprima finché non salvi.
+
+#### Carrello e ordine senza account
+
+Dalla scheda del prodotto il cliente preme **🛒 Aggiungi al carrello** (o sceglie
+la quantità e poi aggiunge). Il carrello vive nel suo telefono: chiude la pagina,
+la riapre dopo due ore e ritrova tutto. Sulla vetrina compare una barra in basso
+con i pezzi e il totale.
+
+Aprendo il carrello bastano **nome e un recapito** — telefono *oppure* email:
+nessun account, nessuna password. L'ordine entra in **Ordini** con il codice
+`ORD…` come tutti gli altri, e alla cassa lo ritiri con **Ritiro di un ordine
+del sito**. Se il cliente ha scritto l'email, la conferma parte subito con il
+codice in grande, un prodotto per riga, il totale in grassetto e il pagamento
+(«da pagare alla cassa» oppure AnDoPay se ha pagato dal totem).
+
+Due controlli automatici prima di accettare l'ordine: se un prodotto è uscito
+dalla vetrina l'ordine si ferma con un messaggio chiaro, e se in magazzino ne
+restano meno di quelli chiesti il cliente viene avvisato con la quantità
+disponibile. Il magazzino non viene scalato all'ordine: si scala alla cassa,
+quando la merce esce davvero.
+
+Chi è collegato al sito ritrova nome ed email già scritti nel carrello.
+
+#### Avvisami quando torna
+
+Su un prodotto esaurito al posto del carrello c'è **Avvisami quando torna**:
+il cliente lascia l'email (e il nome, se vuole) e riceve **una email sola**
+appena il prodotto rientra in magazzino. L'avviso parte da solo ogni dieci
+minuti, senza che nessuno debba ricordarsene.
+
+Quando il cliente ordina lo stesso prodotto, l'avviso viene annullato da solo:
+non riceve un messaggio per una cosa che ha già comprato.
+
+#### Italiano e inglese
+
+Se in **Vetrina prodotti** attivi la lingua, in alto a destra compaiono **IT** e
+**EN**: cambiano i testi della pagina, i pulsanti e i nomi dei prodotti se hai
+scritto il nome e la descrizione in inglese nella scheda del prodotto. La scelta
+resta memorizzata sul telefono del cliente.
+
 ### Ordini pronti e numero sul monitor
 
 Quando un ordine è pronto, segnalo da **Ordini** (o da **Esperienza → Ordini da
@@ -1171,6 +1241,7 @@ sito: senza sito il PDF esce come prima, senza QR.
 | Il totem non mostra un prodotto | Non è tra quelli scelti in Esperienza, oppure è a scorta zero. |
 | Il codice del premio non vale | Il coupon è scaduto (validità in giorni) o è già stato usato. |
 | Il QR non c'è sul PDF | Manca l'indirizzo del sito nelle impostazioni di sincronizzazione. |
+| La pagina `/prodotti/<codice>` dice «non è più in vetrina» | La vetrina è spenta, il prodotto non è tra quelli scelti, oppure non è in offerta col modo «solo offerte». |
 
 ## 12-quater. Recensioni e proposte dei clienti
 
@@ -1254,6 +1325,77 @@ Recensioni e proposte vivono sul sito, non sul computer della cassa: quello che
 il cliente scrive è già nelle due schede del pannello, senza nessuna operazione
 da fare. Le schede si aggiornano con il pulsante di ricarica e le recensioni non
 si possono cancellare per sbaglio: restano come storico del negozio.
+
+---
+
+## 12-quinquies. Cosa cercano, avvisi di rientro e notifiche push
+
+Tre cose che lavorano da sole e che si vedono in due schede nuove del pannello
+web: **Cosa cercano** e **Notifiche**.
+
+### 📈 Cosa cercano (scheda del pannello)
+
+Ogni volta che un cliente apre la pagina di un prodotto la vetrina lo segna, e
+così ogni ricerca scritta nel campo in alto. La scheda **Cosa cercano** mostra,
+per gli ultimi 7, 30 o 90 giorni:
+
+- **pagine aperte** in totale e giorno per giorno;
+- i **prodotti più guardati**, con prezzo e giacenza: se un articolo molto
+  guardato è a zero, è il primo da riordinare;
+- le **ricerche** con quante volte sono state fatte e quanti risultati hanno
+  trovato;
+- le **ricerche a vuoto**, cioè quello che i clienti cercano e non hai: è la
+  lista della spesa che ti scrivono senza dirtelo;
+- chi aspetta un prodotto esaurito (**persone in attesa**), così sai quanto
+  pesa davvero quel buco sullo scaffale.
+
+Il pulsante **Controlla e invia ora** manda subito le email di rientro invece
+di aspettare il controllo automatico: comodo dopo aver registrato un carico di
+merce.
+
+I conteggi si sommano per prodotto e per giorno, quindi il database resta
+piccolo anche con molti visitatori; non c'è nessun dato personale nei numeri
+delle viste e delle ricerche.
+
+### 🔔 Notifiche push: automatiche e a mano
+
+Il sito può mandare una notifica sul telefono del cliente, **anche ad app
+chiusa**. Funziona su Android, su computer e su iPhone (da iOS 16.4, con il sito
+installato nella schermata Home).
+
+Nella scheda **Notifiche** del pannello:
+
+- **Chi è iscritto**: il numero di dispositivi, la data dell'ultima notifica e
+  il cliente collegato, se c'è. Non serve nessuna chiave da copiare: le chiavi
+  del servizio push nascono da sole al primo uso e restano sul server.
+- **Notifiche automatiche**: due interruttori. *Ordine pronto* avvisa il cliente
+  quando in **Ordini** segni il suo ordine come pronto (se ha l'email o
+  l'account collegato). *Offerte del giorno* manda una notifica al giorno quando
+escono le offerte, una sola anche se le offerte sono dieci.
+- **Notifica a mano**: titolo, testo e pagina da aprire al tocco (per esempio
+  `/prodotti` o `/prodotti/<codice>`). Parte subito a tutti gli iscritti e resta
+nello storico con quanti l'hanno ricevuta e quanti errori ci sono stati.
+- **Prova**: manda una notifica solo a questo dispositivo per controllare che
+  permessi e suono siano a posto.
+
+Chi blocca le notifiche o disinstalla l'app viene tolto dall'elenco da solo:
+quando il servizio risponde che l'iscrizione non esiste più, viene cancellata.
+
+### 📱 Installare il sito come app
+
+Il sito è una **PWA**: si installa dal browser senza store, senza account e
+senza aggiornamenti da fare a mano.
+
+- **Android/Chrome**: apri il sito, menu ⋮ → **Installa app** (oppure il
+  pulsante *Installa* nella scheda Notifiche).
+- **iPhone/Safari**: tocca **Condividi** → **Aggiungi a Home**.
+- **Computer**: icona di installazione nella barra degli indirizzi di Chrome o
+  Edge.
+
+L'icona è quella del negozio. Una volta installata, l'app si apre a tutto
+schermo sulla vetrina `/prodotti`, ricorda le pagine già viste e funziona anche
+senza rete per quello che è già stato aperto; prezzi, ordini e disponibilità
+arrivano sempre dal sito, mai dalla cache.
 
 ---
 
