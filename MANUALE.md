@@ -1157,8 +1157,52 @@ prodotti).
   numero di posizione, nome A→Z, prezzo crescente o decrescente, reparto.
 - **Titolo, sottotitolo e telefono**: il telefono alimenta i pulsanti Chiama e
   WhatsApp di ogni scheda.
-- **Scheda del prodotto** (✏️): descrizione fino a 600 caratteri e indirizzo
-  di una foto già online. Senza foto compare una mattonella colorata col nome.
+- **Scheda del prodotto** (✏️): descrizione fino a 600 caratteri, nome e
+  descrizione in inglese e **foto**. Senza foto compare una mattonella colorata
+  col nome.
+
+### Le foto dei prodotti stanno sul tuo Google Drive
+
+Le foto non occupano spazio nel sito: vengono caricate nella **tua cartella
+Google Drive** e il sito le mostra prendendole da lì. Nella cartella se ne
+salvano **due versioni** per ogni foto: una piccola (480 px) per la griglia
+della vetrina e una grande (1600 px) per la scheda del prodotto. Il telefono le
+riduce prima di inviarle, quindi non consuma dati e il Drive non si riempie di
+foto da 8 MB.
+
+**Per collegarlo, una volta sola:**
+
+1. Su [console.cloud.google.com](https://console.cloud.google.com) crea un
+   progetto (o usa quello che hai) e attiva **Google Drive API** in *API e
+   servizi → Libreria*.
+2. In *API e servizi → Credenziali* crea un **service account**, poi dalle sue
+   chiavi aggiungi una **chiave JSON** e scarica il file.
+3. Nel tuo Drive crea una cartella (per esempio *Foto prodotti*) e **condividila**
+   con la mail del service account (`…@….iam.gserviceaccount.com`) come
+   **Editor**. Senza questa condivisione il caricamento risponde «cartella non
+   trovata».
+4. Copia l'id della cartella dall'indirizzo: nella parte
+   `drive.google.com/drive/folders/`**`QUESTO`**.
+5. In **Sites → Secrets** aggiungi tre variabili:
+   - `GOOGLE_DRIVE_EMAIL` — la mail del service account;
+   - `GOOGLE_DRIVE_KEY` — il contenuto del file JSON (va bene tutto il file,
+     non serve ritagliarlo) oppure solo la `private_key`;
+   - `GOOGLE_DRIVE_FOLDER` — l'id della cartella.
+
+Poi in **Vetrina prodotti** apri la scheda di un prodotto con ✏️ e premi
+**📷 Scegli una foto**. La foto appena caricata diventa la **copertina** (quella
+che si vede nella griglia pubblica); con la ✕ la togli dal Drive e dal prodotto.
+Il riquadro *Drive non collegato* dice quale delle tre variabili manca.
+
+Se preferisci non usare il Drive, nella stessa scheda c'è *«Oppure usa il link
+di una foto già online»*: incolli l'indirizzo e la vetrina la mostra come prima.
+
+### Lo stesso stile in tutte le pagine del cliente
+
+Tutte le pagine che vede il cliente — listino, area personale, prenotazioni,
+gratta e vinci, cartando, totem, schermo, feedback, recensioni, proposte e
+vetrina — usano lo **stesso tema scuro con il verde acqua** della vetrina
+`/prodotti`. La dashboard del negozio resta chiara, perché lì si lavora.
 
 La vetrina prodotti si gestisce dal pannello web, così è la stessa per tutti i
 clienti. Ricorda di premere **Salva e pubblica**: le modifiche restano in
@@ -1248,9 +1292,21 @@ sito: senza sito il PDF esce come prima, senza QR.
 Due pagine pubbliche e due schede del pannello, per sapere cosa pensano i
 clienti dei prodotti e cosa vorrebbero trovare in negozio.
 
-### `/recensione` — le stelle ai prodotti
+### `/recensione` — le stelle al negozio e ai prodotti
 
-La pagina funziona in **due modi**, e si capisce subito quale stai usando.
+In cima alla pagina c'è sempre **«Com'è il negozio nel suo insieme?»**: stelle
+al negozio, non a un prodotto. **Non serve lo scontrino e non serve il login**:
+basta il nome (le stelle da sole, il commento è facoltativo). Serve a raccogliere
+l'accoglienza, gli orari, la pulizia, il servizio: cose che nessuna recensione di
+un prodotto direbbe mai.
+
+Se lo stesso nome lascia un altro giudizio nello stesso giorno, quello di prima
+viene **aggiornato**: chi cambia idea non lascia due pareri diversi. I giudizi
+sul negozio compaiono nella vetrina pubblica `/nostrerecensioni` (sezione «Il
+negozio nel suo insieme») e nella scheda **Recensioni** del pannello, con la
+loro media separata da quella dei prodotti.
+
+Sotto, la pagina funziona in **due modi**, e si capisce subito quale stai usando.
 
 **Con il login.** Il cliente accede con l'account del negozio e vede **gli
 scontrini del suo profilo**, dal più recente, con la scritta *da recensire* su
