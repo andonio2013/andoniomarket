@@ -909,6 +909,14 @@ Entrando in `/ilmioarket` il cliente vede e gestisce da solo:
 - i **dati del profilo**, compreso il **compleanno** (serve per il coupon
 automatico) e il **carrello salvato** tra una visita e l'altra.
 
+In basso a destra c'è la **campanella** delle notifiche. Un tocco, *«Attiva su
+questo telefono»*, e il cliente riceve sul telefono l'avviso quando l'ordine è
+pronto e quando escono le offerte del giorno; *«Manda una prova»* serve a
+verificare che arrivino, *«Spegni»* le toglie solo da quel dispositivo. Lo stato
+si legge in alto nel pannello (attive, spente, bloccate dal browser). Su iPhone
+le notifiche arrivano solo se il sito è stato aggiunto alla schermata Home: la
+campanella lo spiega al posto di un errore.
+
 Tutto quello che il cliente muove qui arriva al programma con la
 sincronizzazione: se il cliente si iscrive dal sito, in cassa lo trovi già con
 il suo codice cliente.
@@ -1197,12 +1205,13 @@ Il riquadro *Drive non collegato* dice quale delle tre variabili manca.
 Se preferisci non usare il Drive, nella stessa scheda c'è *«Oppure usa il link
 di una foto già online»*: incolli l'indirizzo e la vetrina la mostra come prima.
 
-### Lo stesso stile in tutte le pagine del cliente
+### Lo stile delle pagine del cliente
 
-Tutte le pagine che vede il cliente — listino, area personale, prenotazioni,
-gratta e vinci, cartando, totem, schermo, feedback, recensioni, proposte e
-vetrina — usano lo **stesso tema scuro con il verde acqua** della vetrina
-`/prodotti`. La dashboard del negozio resta chiara, perché lì si lavora.
+Ogni pagina del cliente tiene il suo stile: listino e area personale
+(`/listaprodotti`, `/ilmioarket`) restano **chiare e leggere**, la vetrina
+`/prodotti` ha il suo tema scuro con il verde acqua, prenotazioni, gratta e
+vinci, cartando, totem, schermo, feedback, recensioni e proposte hanno il loro.
+La dashboard del negozio resta la sua, perché lì si lavora.
 
 La vetrina prodotti si gestisce dal pannello web, così è la stessa per tutti i
 clienti. Ricorda di premere **Salva e pubblica**: le modifiche restano in
