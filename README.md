@@ -387,6 +387,44 @@ sono tre: coupon di benvenuto, carrello abbandonato e clienti che non tornano da
 un po'; a queste si aggiungono il coupon di compleanno e l'email delle offerte
 del giorno.
 
+## Conti aperti, resi e pagamento diviso
+
+La scheda **Conti aperti** tiene un tavolo o un cliente con più scontrini
+parziali: si aggiungono articoli, si registrano acconti e alla chiusura esce un
+solo documento con tutte le righe e chi ha pagato cosa. Il **pagamento diviso**
+usa percentuali (di default la stessa quota per tutti) o importi precisi, e
+l'ultima persona prende i centesimi rimasti.
+
+In **Scontrini** c'è il **Reso totale**: rientrano i pezzi in magazzino, si
+stornano i punti guadagnati, tornano quelli spesi e i coupon usati ridiventano
+validi. **Ricarica AnDoPay** sta nella stessa scheda dei conti: importo libero e
+scontrino della ricarica.
+
+## Crescita: reputazione, referral, cashback, segmenti
+
+La scheda **Crescita** raccoglie le leve commerciali: media e temi delle
+recensioni con allarme sotto soglia, recensione del mese premiata con coupon,
+referral a due vie con pagina pubblica `/referral/CODICE`, cashback per
+categoria e giorno, segmenti automatici con limite settimanale di email,
+calendario delle promozioni che parte da solo, slot di ritiro con capienza,
+check-list giornaliere, coda di attesa sui prodotti esauriti, SMS, annunci del
+totem e centro notifiche.
+
+Gli SMS si attivano con Twilio (`TWILIO_SID`, `TWILIO_TOKEN`, `TWILIO_FROM`)
+oppure con un webhook generico (`SMS_WEBHOOK`): il manuale spiega passo per
+passo, compreso il costo per messaggio.
+
+## Analisi, previsioni e cassa offline
+
+La scheda **Analisi** calcola previsioni a 7 e 30 giorni, quanto ordinare per
+fornitore, un prezzo consigliato prudente, la liquidità dei prossimi sette
+giorni, gli orari di punta, le ricerche a vuoto, le anomalie degli scontrini e
+il riassunto della domenica. C'è anche **Chiedi al negozio**, con domande in
+italiano.
+
+Se la rete cade, la cassa continua: le vendite finiscono in coda nel dispositivo
+e si riallineano da sole, senza doppioni, appena torna il campo.
+
 ## Ripristino da backup
 
 Dalla pagina **Backup** del pannello puoi scaricare un backup caricato dal

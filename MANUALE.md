@@ -1704,6 +1704,169 @@ voto per dispositivo, senza account.
 
 ---
 
+## 17. Conti aperti, resi, cashback, referral e analisi
+
+Questa parte del pannello web lavora sui dati veri del negozio: scontrini,
+righe, prodotti, clienti e ricerche del sito. Non serve nessun servizio esterno,
+tranne per le email e per gli SMS.
+
+### Conti aperti e pagamento diviso
+
+Scheda **Conti aperti** (menu a sinistra, sotto *Cassa*).
+
+1. Scrivi il nome del conto (un tavolo, un cliente, un numero) e premi **Apri**.
+2. Cerca il prodotto per nome o codice e aggiungilo con un tocco; la crocetta
+   toglie una riga.
+3. Nella parte **Pagamento diviso** ci sono già due persone al 50%. Puoi
+   aggiungerne altre, cambiare nome, percentuale e modo di pagamento
+   (contanti, carta, elettronico, AnDoPay). Il pulsante **Parti uguali**
+   ricalcola le quote; l'ultima persona prende i centesimi rimasti, così la somma
+   torna al centesimo.
+4. **Registra acconto** segna un pagamento parziale e lascia il conto aperto.
+5. **Chiudi conto e stampa** emette **un solo scontrino** con tutte le righe e
+   l'elenco di chi ha pagato cosa. Compare anche l'anteprima del testo da
+   stampare o inviare.
+
+Il conto si può annullare finché è aperto. I conti chiusi restano negli
+scontrini con il riferimento `conto:nome`.
+
+### Reso totale
+
+In **Scontrini** apri un documento emesso: oltre al rimborso parziale c'è
+**Reso totale**. Fa tutto insieme:
+
+- lo scontrino passa a *reso* (non si può fare due volte);
+- i pezzi rientrano in magazzino;
+- i punti guadagnati si stornano e quelli spesi tornano al cliente;
+- i coupon usati su quella spesa tornano validi;
+- resta la traccia di chi ha fatto il reso e quando.
+
+### Ricarica AnDoPay in cassa
+
+Sempre in **Conti aperti**, in fondo: numero della carta, importo e **Ricarica**.
+Il saldo si aggiorna, il movimento entra nello storico della carta e viene
+emesso lo scontrino della ricarica.
+
+### Crescita
+
+Scheda **Crescita** (solo amministratore). Dentro, in ordine:
+
+- **Reputazione**: media delle stelle, media del mese, temi ricorrenti dei
+  commenti (prezzi, attesa, personale, prodotti, negozio) e allarme quando la
+  media scende sotto la soglia scelta (predefinita 4,2).
+- **Recensione del mese**: sceglie la recensione migliore del mese, emette un
+  coupon (importo e percentuale si decidono dalla configurazione) e lo manda
+  per email se il cliente ha un indirizzo.
+- **Referral a due vie**: punti a chi invita e a chi arriva. Il cliente trova il
+  suo link `/referral/CODICE` nell'area clienti; la pagina è pubblica e mostra
+  il premio. Il codice si usa una volta sola per persona. Puoi anche assegnare
+  un **premio su misura** a un cliente specifico.
+- **Cashback per categoria**: per esempio 5% sull'ortofrutta il martedì.
+  L'accredito avviene in punti sugli scontrini del giorno scelto: premi
+  **Accredita oggi** oppure lascia fare al cron. Mai due volte lo stesso
+  scontrino.
+- **Segmenti automatici**: non vengono da 60 giorni, almeno 3 visite in 90
+  giorni, primo acquisto negli ultimi 30. Vedi quanti sono e quante email hai, e
+  puoi inviare un messaggio al segmento. Il limite settimanale (predefinito 2
+  email a cliente) è rispettato.
+- **Calendario promozioni**: data, ora, destinatari e testo. Parte da solo alla
+  data scelta, anche a dashboard chiusa.
+- **Ritiro e slot**: capienza per fascia, giorni attivi e badge «pronto in 15
+  minuti». Il sito mostra solo le fasce con posto libero.
+- **Check-list di oggi**: apertura, chiusura, frigo. Le spunte restano nello
+  storico con il nome di chi le ha fatte.
+- **Coda di attesa**: chi lascia l'email su un prodotto esaurito entra in coda
+  con un numero; **Avvisa tutti** manda l'email in ordine di arrivo.
+- **SMS**: numero e testo, per chi non ha email.
+- **La tua voce**: gli annunci del totem. Il testo basta; l'audio facoltativo va
+  su Google Drive e resta privato.
+- **Centro notifiche**: ogni email o SMS inviato, con destinatario ed esito.
+
+### Come attivare gli SMS
+
+Gli SMS sono l'unico canale che costa: si paga al gestore, non al sito. Il
+programma parla con due sistemi, si sceglie uno:
+
+**Twilio** (il più semplice)
+
+1. Crea un account su twilio.com e compra un numero italiano o internazionale
+   abilitato agli SMS.
+2. Nella console copia *Account SID* e *Auth Token*.
+3. Nei secret del sito aggiungi:
+   - `TWILIO_SID` = Account SID
+   - `TWILIO_TOKEN` = Auth Token
+   - `TWILIO_FROM` = il numero comprato, in formato `+39...`
+4. Ricarica il pannello: in **Crescita → SMS** il badge diventa verde.
+
+**Oppure un webhook generico** (se hai già un fornitore: Aruba, Skebby, un
+servizio locale)
+
+1. Fai in modo che il tuo fornitore accetti una `POST` JSON con
+   `{"to": "+39...", "text": "...", "from": "..."}`.
+2. Nei secret aggiungi `SMS_WEBHOOK` con quell'indirizzo e, se serve,
+   `SMS_FROM` con il mittente.
+
+Gli SMS partono solo quando li mandi tu dal pannello: nessun invio automatico
+di massa. Il costo tipico in Italia è di pochi centesimi per messaggio; conviene
+usarli per «ordine pronto» e per i codici di ritiro, non per pubblicità.
+
+### Analisi e previsioni
+
+Scheda **Analisi**.
+
+- **Previsione di vendita** a 7 e 30 giorni per prodotto, con intervallo minimo
+  e massimo e giorni di copertura della scorta.
+- **Quanto ordinare**: copertura di 14 giorni più la scorta minima, divisa per
+  fornitore, con costo previsto.
+- **Prezzo consigliato**: stima prudente di un -5% (più pezzi, margine unitario
+  più basso) e quale effetto avrebbe sul margine.
+- **Liquidità dei prossimi 7 giorni**: contante medio degli ultimi giorni.
+- **Quando serve aiuto**: scontrini per ora e per giorno, con le ore di punta.
+- **Cosa manca davvero**: le ricerche del sito senza risultati, da portare al
+  fornitore.
+- **Anomalie**: scontrini a vuoto, sconti oltre il 40%, importi molto sopra la
+  media, resi.
+- **Riassunto della domenica**: com'è andata la settimana, in italiano.
+- **Chiedi al negozio**: domande come «quanto ho venduto di birra a ottobre?».
+
+### Cassa offline
+
+Se la rete cade mentre stai servendo, la vendita non si perde: finisce in una
+coda nel dispositivo e parte da sola appena torna il campo (anche ogni minuto,
+finché ce n'è). Il server riconosce ogni vendita dal suo identificativo, quindi
+un riallineamento ripetuto non crea doppioni.
+
+Quello che funziona offline è **vendere**: punti, coupon e sconti automatici
+hanno bisogno del server, quindi la vendita in coda si registra con il totale
+che vedi sullo schermo. Le vendite riallineate compaiono negli scontrini con
+origine `offline`.
+
+### Note interne e tessera amico
+
+- In **Clienti**, la colonna **Note** apre una nota privata per cliente (per
+  esempio «ritira il giovedì»). Non si vede sul sito.
+- **Tessera amico** crea una tessera di 30 giorni per un nuovo cliente: codice,
+  EAN-8 scansionabile in cassa e punti che si sommano come una tessera normale.
+
+### Cosa serve ancora configurare
+
+- **Foto su Google Drive**: servono `GOOGLE_DRIVE_EMAIL`, `GOOGLE_DRIVE_KEY` e
+  `GOOGLE_DRIVE_FOLDER` (service account con la cartella condivisa come Editor).
+  Senza questi, la pagina del negozio e gli annunci audio funzionano ma le foto
+  non si caricano.
+- **Email**: già attiva con Gmail (`GMAIL_USER` e `GMAIL_APP_PASS`) oppure con
+  Resend.
+
+### Cosa non è ancora compreso
+
+Per essere chiari, da questo giro restano fuori: la carta famiglia con
+proprietario e massimali per persona, il pagamento con carta condivisa, il
+conto aperto direttamente dentro la cassa (qui vive nella sua scheda), i filtri
+con indirizzo condivisibile in `/prodotti`, il coupon di compleanno con i
+prodotti preferiti e il registro completo di ogni azione del pannello.
+
+---
+
 ## Supporto
 
 Problemi, licenze, upgrade di versione: **andonio2013@gmail.com**
