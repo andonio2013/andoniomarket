@@ -1782,7 +1782,10 @@ Scheda **Crescita** (solo amministratore). Dentro, in ordine:
   media scende sotto la soglia scelta (predefinita 4,2).
 - **Recensione del mese**: sceglie la recensione migliore del mese, emette un
   coupon (importo e percentuale si decidono dalla configurazione) e lo manda
-  per email se il cliente ha un indirizzo.
+  per email se il cliente ha un indirizzo. Il codice è nel formato `CPN…` come
+  tutti gli altri, quindi si scansiona e funziona allo stesso modo; i vecchi
+  coupon con prefisso `MESE…` restano accettati. Se premi di nuovo, ne emette
+  un altro per la stessa recensione (utile se il primo è andato perso).
 - **Referral a due vie**: punti a chi invita e a chi arriva. Il cliente trova il
   suo link `/referral/CODICE` nell'area clienti; la pagina è pubblica e mostra
   il premio. Il codice si usa una volta sola per persona. Puoi anche assegnare
@@ -1821,6 +1824,12 @@ Scheda **Crescita** (solo amministratore). Dentro, in ordine:
 - **La tua voce**: gli annunci del totem. Il testo basta; l'audio facoltativo va
   su Google Drive e resta privato.
 - **Centro notifiche**: ogni email o SMS inviato, con destinatario ed esito.
+
+La **sincronizzazione completa** con il gestionale manda al desktop anche i
+**coupon nati sul sito** (compleanno, benvenuto, recensione del mese, premi dei
+punti) con codice, cliente, valore, scadenza e se sono già usati: la cassa li
+conosce senza doverli cercare, oltre a poterli validare in tempo reale con
+`/api/sync/coupon`.
 
 ### Come attivare gli SMS
 
