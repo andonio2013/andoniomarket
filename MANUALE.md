@@ -1192,29 +1192,41 @@ della vetrina e una grande (1600 px) per la scheda del prodotto. Il telefono le
 riduce prima di inviarle, quindi non consuma dati e il Drive non si riempie di
 foto da 8 MB.
 
-**Per collegarlo, una volta sola:**
+**Per collegarlo, una volta sola (account del negozio):**
 
-1. Su [console.cloud.google.com](https://console.cloud.google.com) crea un
-   progetto (o usa quello che hai) e attiva **Google Drive API** in *API e
-   servizi → Libreria*.
-2. In *API e servizi → Credenziali* crea un **service account**, poi dalle sue
-   chiavi aggiungi una **chiave JSON** e scarica il file.
-3. Nel tuo Drive crea una cartella (per esempio *Foto prodotti*) e **condividila**
-   con la mail del service account (`…@….iam.gserviceaccount.com`) come
-   **Editor**. Senza questa condivisione il caricamento risponde «cartella non
-   trovata».
-4. Copia l'id della cartella dall'indirizzo: nella parte
-   `drive.google.com/drive/folders/`**`QUESTO`**.
-5. In **Sites → Secrets** aggiungi tre variabili:
-   - `GOOGLE_DRIVE_EMAIL` — la mail del service account;
-   - `GOOGLE_DRIVE_KEY` — il contenuto del file JSON (va bene tutto il file,
-     non serve ritagliarlo) oppure solo la `private_key`;
-   - `GOOGLE_DRIVE_FOLDER` — l'id della cartella.
+Il caricamento deve avvenire **a nome tuo**, perché un service account di Google
+non ha spazio Drive e non può possedere file: per questo si usa il tuo account.
+
+1. Su [console.cloud.google.com](https://console.cloud.google.com) usa il
+   progetto del negozio e attiva **Google Drive API** in *API e servizi →
+   Libreria*.
+2. In *API e servizi → Credenziali* crea un **ID client OAuth** di tipo
+   **Applicazione desktop** e scarica il **JSON**.
+3. Con quel file si esegue una volta lo script `build/drive_oauth.mjs`: stampa un
+   indirizzo, lo apri, scegli il tuo account e premi **Consenti**. Il programma
+   salva il permesso permanente, senza che nessuna chiave passi dalla chat.
+4. In **Sites → Secrets** aggiungi tre variabili (i valori sono nel file che lo
+   script crea in `.secrets/drive_oauth.json`):
+   - `GOOGLE_OAUTH_CLIENT_ID`;
+   - `GOOGLE_OAUTH_CLIENT_SECRET`;
+   - `GOOGLE_OAUTH_REFRESH_TOKEN`.
+
+La cartella **AnDonio Market** viene creata la prima volta dal sito e la ritrovi
+nel tuo Drive; se preferisci un'altra cartella, metti il suo id in
+`GOOGLE_DRIVE_FOLDER`. Il permesso richiesto è `drive.file`: il sito vede e
+gestisce solo i file che crea lui.
+
+**Alternativa in sola lettura (service account):** `GOOGLE_DRIVE_EMAIL`,
+`GOOGLE_DRIVE_KEY` e `GOOGLE_DRIVE_FOLDER` (cartella condivisa con
+`…@….iam.gserviceaccount.com` come Editor). Serve per leggere foto già presenti,
+ma **non** per caricarne: Google risponde «Service Accounts do not have storage
+quota».
 
 Poi in **Vetrina prodotti** apri la scheda di un prodotto con ✏️ e premi
 **📷 Scegli una foto**. La foto appena caricata diventa la **copertina** (quella
 che si vede nella griglia pubblica); con la ✕ la togli dal Drive e dal prodotto.
-Il riquadro *Drive non collegato* dice quale delle tre variabili manca.
+Il riquadro *Drive non collegato* dice quale variabile manca, e `/api/foto/stato`
+riporta il modo in uso (`account` oppure `service-account`).
 
 Se preferisci non usare il Drive, nella stessa scheda c'è *«Oppure usa il link
 di una foto già online»*: incolli l'indirizzo e la vetrina la mostra come prima.
@@ -1878,10 +1890,12 @@ origine `offline`.
 
 ### Cosa serve ancora configurare
 
-- **Foto su Google Drive**: servono `GOOGLE_DRIVE_EMAIL`, `GOOGLE_DRIVE_KEY` e
-  `GOOGLE_DRIVE_FOLDER` (service account con la cartella condivisa come Editor).
-  Senza questi, la pagina del negozio e gli annunci audio funzionano ma le foto
-  non si caricano.
+- **Foto su Google Drive**: sono già attive con l'account del negozio
+  (`GOOGLE_OAUTH_CLIENT_ID`, `GOOGLE_OAUTH_CLIENT_SECRET`,
+  `GOOGLE_OAUTH_REFRESH_TOKEN`); la cartella è *AnDonio Market*. Se il permesso
+  viene revocato, si rifà il giro con `build/drive_oauth.mjs`. La variante con
+  service account (`GOOGLE_DRIVE_EMAIL`, `GOOGLE_DRIVE_KEY`,
+  `GOOGLE_DRIVE_FOLDER`) resta per la sola lettura: non può caricare.
 - **Email**: già attiva con Gmail (`GMAIL_USER` e `GMAIL_APP_PASS`) oppure con
   Resend.
 
