@@ -443,7 +443,8 @@ C.F.**, **data di compleanno**, punti e **tessera fedeltà** (EAN-8).
   Si stampa la tessera, si mostra il codice a barre oppure il **QR** dal sito.
 - **Compleanno** (formato `GG/MM` o `MM-GG`): il giorno stesso il sito crea in
   automatico il coupon di compleanno con lo sconto che hai impostato e lo invia
-  per email al cliente.
+  per email al cliente, insieme ai **tre prodotti che compra più spesso** (presi
+  dai suoi scontrini) con il link per ordinarli dal sito.
 - **Punti**: si assegnano alla vendita (1 punto per euro, configurabile) e si
   possono correggere a mano dal pulsante **Modifica punti**.
 - **Codice invito** e **invitato da**: per il programma referral (punti a chi
@@ -958,6 +959,11 @@ Attivi o disattivi il coupon automatico del compleanno, scegli se inviarlo per
 **validità in giorni**. Il giorno del compleanno il sito crea il coupon e lo
 invia da solo: in cassa si scansiona il codice e lo sconto si applica.
 
+L'email è su misura: sotto al codice compaiono i **tre prodotti preferiti** di
+quel cliente, ricavati dai suoi scontrini (i più comprati, esclusi resi), ognuno
+con il link `/prodotti/<codice>` per ordinarlo in un tocco. Se non ha ancora
+comprato niente, parte solo il coupon.
+
 ### Regole sconti, promozioni e referral
 
 Le nove offerte del giorno (peso manuale, importo o percentuale, prodotti,
@@ -1168,6 +1174,14 @@ prodotti).
 - **Scheda del prodotto** (✏️): descrizione fino a 600 caratteri, nome e
   descrizione in inglese e **foto**. Senza foto compare una mattonella colorata
   col nome.
+
+**Filtri con l'indirizzo**: sotto ai reparti ci sono i filtri **🏷 Solo in
+offerta**, **✓ Disponibili ora** e **↗ Condividi**. Cercare, scegliere un
+reparto o accendere un filtro scrive tutto nell'indirizzo della pagina (per
+esempio `/prodotti?q=latte&reparto=Freschi&offerta=1`): il link che mandi a un
+cliente riapre esattamente quella vista, sul telefono o sul computer. Il
+tasto **Condividi** apre il pannello del telefono (WhatsApp, Messaggi, email)
+oppure copia il link.
 
 ### Le foto dei prodotti stanno sul tuo Google Drive
 
@@ -1775,6 +1789,20 @@ Scheda **Crescita** (solo amministratore). Dentro, in ordine:
   minuti». Il sito mostra solo le fasce con posto libero.
 - **Check-list di oggi**: apertura, chiusura, frigo. Le spunte restano nello
   storico con il nome di chi le ha fatte.
+- **Carta famiglia**: una famiglia ha un proprietario (la carta AnDoPay è la
+  sua) e più persone, ognuna col proprio massimale mensile (0 = nessun limite).
+  Si sceglie prima il proprietario, poi si aggiungono le persone con il loro
+  limite. Quando si paga, si dice **chi sta pagando**: il saldo della carta
+  scende, la spesa si conta sul gruppo e sulla persona, e se una persona è
+  oltre il limite la spesa viene rifiutata con il motivo. In alto vedi speso e
+  resto del mese del gruppo; riga per riga speso e resto di ciascuno.
+- **Ricarica automatica mensile**: scegli cliente, importo e giorno del mese
+  (1–28). In quel giorno la carta si ricarica da sola, con il movimento
+  `ricarica_auto` nello storico della carta e una riga nel registro azioni.
+  Una sola volta al mese per programmazione.
+- **Registro azioni**: chi ha fatto cosa nel pannello, con data e dettaglio
+  (conti, resi, ricariche, limiti, invii, modifiche). Le azioni automatiche
+  compaiono come «programma».
 - **Coda di attesa**: chi lascia l'email su un prodotto esaurito entra in coda
   con un numero; **Avvisa tutti** manda l'email in ordine di arrivo.
 - **SMS**: numero e testo, per chi non ha email.
@@ -1859,11 +1887,9 @@ origine `offline`.
 
 ### Cosa non è ancora compreso
 
-Per essere chiari, da questo giro restano fuori: la carta famiglia con
-proprietario e massimali per persona, il pagamento con carta condivisa, il
-conto aperto direttamente dentro la cassa (qui vive nella sua scheda), i filtri
-con indirizzo condivisibile in `/prodotti`, il coupon di compleanno con i
-prodotti preferiti e il registro completo di ogni azione del pannello.
+Per essere chiari, da questo giro restano fuori: il pagamento con una carta
+famiglia condivisa alla cassa (qui la spesa si registra dalla scheda Crescita)
+e il conto aperto direttamente dentro la cassa (vive nella sua scheda).
 
 ---
 

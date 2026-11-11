@@ -75,6 +75,8 @@ Il programma si collega al sito del negozio:
 - **Recensioni, lato negozio**: dalla scheda *Recensioni* si risponde in pubblico, si approvano o si scartano le foto dei clienti e si cancella una recensione. Il badge *acquisto verificato* distingue quelle legate a uno scontrino.
 - **I tre più amati**: in `/prodotti` compaiono i tre articoli che escono davvero dal magazzino (almeno due scontrini negli ultimi 90 giorni).
 - **Ricerca tollerante**: refusi e sinonimi («Samsug», «detergende») trovano lo stesso il prodotto, che compare in cima ai risultati.
+- **Filtri con l'indirizzo**: in `/prodotti` offerte, disponibilità e reparto finiscono nel link (per esempio `/prodotti?q=latte&offerta=1`), così il filtro condiviso riapre la stessa vista.
+- **Coupon di compleanno su misura**: oltre allo sconto, l'email del compleanno elenca i tre prodotti che il cliente compra più spesso, con il link per ordinarli.
 - **Spesa solita**: in `/ilmioarket` i prodotti comprati almeno due volte, da rimettere nel carrello con un tocco.
 - **Anti-doppio scan**: lo stesso codice letto due volte in un secondo e mezzo chiede conferma alla cassa.
 - **Blocco per inattività**: dopo i minuti scelti lo schermo della cassa si copre e serve il PIN (predefinito `4646`, modificabile o disattivabile da *Impostazioni*).
@@ -408,7 +410,10 @@ referral a due vie con pagina pubblica `/referral/CODICE`, cashback per
 categoria e giorno, segmenti automatici con limite settimanale di email,
 calendario delle promozioni che parte da solo, slot di ritiro con capienza,
 check-list giornaliere, coda di attesa sui prodotti esauriti, SMS, annunci del
-totem e centro notifiche.
+totem e centro notifiche. In più: **carta famiglia** (proprietario, massimale
+del gruppo e limite per persona; alla spesa si dice chi sta pagando),
+**ricarica automatica mensile** della carta AnDoPay e **registro azioni** con
+chi ha fatto cosa nel pannello.
 
 Gli SMS si attivano con Twilio (`TWILIO_SID`, `TWILIO_TOKEN`, `TWILIO_FROM`)
 oppure con un webhook generico (`SMS_WEBHOOK`): il manuale spiega passo per
