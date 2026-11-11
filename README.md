@@ -69,7 +69,18 @@ Il programma si collega al sito del negozio:
 - **Foto prodotti sul Drive**: le immagini caricate dalla scheda vetrina finiscono nella cartella **Google Drive** del negozio (anteprima 480 px e grande 1600 px) e il sito le serve dalla cache: lo spazio web resta libero.
 - **Campanella delle notifiche**: nell'area personale, in basso a destra, il cliente accende le notifiche del negozio su quel telefono, manda una prova o le spegne; lo stato si legge nel pannello.
 - **Stili separati**: listino e area personale restano chiari, `/prodotti` ha il tema scuro con il verde acqua, le altre pagine pubbliche il loro; la dashboard resta la sua.
-- **Vetrina delle recensioni** (`/nostrerecensioni`): pagina pubblica con media, distribuzione delle stelle, prodotti più recensiti e tutti i commenti. Si legge senza account, senza modulo e senza registrarsi; la firma è solo nome e iniziale del cognome, mai scontrino o email.
+- **Il nostro negozio** (`/ilnostronegozio`): la pagina che presenta il negozio — storia, orari, foto, prodotti scelti e recensioni — modificabile solo dall'amministratore dalla scheda *Il nostro negozio*. Le foto stanno su Google Drive.
+- **Ricette** (`/ricette`): per chi ha l'account, ricette da TheMealDB con la lista degli ingredienti da spuntare; se un ingrediente è in catalogo il pulsante porta alla scheda del prodotto per comprarlo.
+- **Vetrina delle recensioni** (`/nostrerecensioni`): pagina pubblica con media, distribuzione delle stelle, prodotti più recensiti e tutti i commenti. Si legge senza account, senza modulo e senza registrarsi; la firma è solo nome e iniziale del cognome, mai scontrino o email. Ogni recensione mostra la risposta firmata del negozio, le foto approvate e il pulsante *Utile* (un voto per dispositivo).
+- **Recensioni, lato negozio**: dalla scheda *Recensioni* si risponde in pubblico, si approvano o si scartano le foto dei clienti e si cancella una recensione. Il badge *acquisto verificato* distingue quelle legate a uno scontrino.
+- **I tre più amati**: in `/prodotti` compaiono i tre articoli che escono davvero dal magazzino (almeno due scontrini negli ultimi 90 giorni).
+- **Ricerca tollerante**: refusi e sinonimi («Samsug», «detergende») trovano lo stesso il prodotto, che compare in cima ai risultati.
+- **Spesa solita**: in `/ilmioarket` i prodotti comprati almeno due volte, da rimettere nel carrello con un tocco.
+- **Anti-doppio scan**: lo stesso codice letto due volte in un secondo e mezzo chiede conferma alla cassa.
+- **Blocco per inattività**: dopo i minuti scelti lo schermo della cassa si copre e serve il PIN (predefinito `4646`, modificabile o disattivabile da *Impostazioni*).
+- **Buono regalo via email**: dal pannello *Buoni regalo* si indica il destinatario e il codice parte subito con importo e scadenza.
+- **Esporta tutto dal Cervello**: un file JSON leggibile con prodotti, clienti, scontrini, righe, recensioni, coupon, buoni, movimenti punti, ordini e impostazioni.
+- **Cancellazione cliente**: pulsante rosso in *Clienti*; spariscono account, carte AnDoPay, coupon e carrello, gli scontrini restano senza intestatario.
 - **Proposte** (`/proponi`): il cliente chiede di aggiungere o togliere un prodotto. Con il login basta selezionare; senza login lascia nome, cognome ed email (non si crea nessun account).
 - **Promozioni via email**: dal pannello si invia un avviso con le promozioni della giornata o un testo personalizzato, a tutti i clienti o solo ad alcuni.
 - **Clienti**: il negoziante vede i clienti registrati e la loro email e può assegnare una nuova password oppure chiederne il cambio al prossimo accesso.

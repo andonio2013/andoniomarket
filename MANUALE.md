@@ -1648,6 +1648,62 @@ Installa di nuovo, attiva la licenza (dopo averla fatta sbloccare) e usa
 
 ---
 
+## 16. La pagina del negozio, le ricette e le recensioni con risposta
+
+### Il nostro negozio (`/ilnostronegozio`)
+
+Dalla scheda **Il nostro negozio** del pannello (solo amministratore) scrivi il
+ titolo, il sottotitolo, la storia (una riga vuota separa i paragrafi), fino a
+otto punti di forza e gli orari nel formato `Lunedì | 8:00–20:00`. Puoi anche
+lasciare un avviso («chiusi per ferie») e aggiungere fino a dodici foto: quelle
+foto finiscono su **Google Drive** e il sito le serve dalla cache, come per i
+prodotti. Il pulsante *Vedi la pagina* apre il risultato vero.
+
+La pagina mostra anche da sola la media delle recensioni, le ultime sei con la
+risposta del negozio e fino a otto prodotti: prima quelli scelti per la vetrina,
+poi i più venduti.
+
+### Ricette (`/ricette`)
+
+È per chi ha l'account del negozio (serve la tessera, non un pagamento). Le
+ricette arrivano da **TheMealDB**, un servizio gratuito senza chiave: il Worker
+fa da ponte, quindi non serve nessuna configurazione. Scegli una ricetta,
+spunta gli ingredienti che hai già in casa e per gli altri trovi il pulsante che
+apre la scheda del prodotto: se l'ingrediente è in catalogo, ci arrivi in un
+tocco.
+
+### Recensioni: risposta, foto, «utile»
+
+Nella scheda **Recensioni** ogni riga ha tre azioni:
+
+- **Rispondi**: la risposta è pubblica e firmata dal negozio; lascia il campo
+  vuoto per toglierla. Si vede in `/nostrerecensioni` e in `/ilnostronegozio`.
+- **Cancella** (pulsante rosso): toglie la recensione e tutto quello che ci sta
+  attorno. Serve per i casi di insulti o spam.
+- **Foto**: quelle dei clienti hanno un riquadro sbiadito con ✓ e ✕. Finché non
+  premi ✓ restano invisibili al pubblico.
+
+Il badge **acquisto verificato** distingue le recensioni legate a uno scontrino.
+Chi legge la vetrina pubblica può segnare una recensione come **utile**: un solo
+voto per dispositivo, senza account.
+
+### Altre novità in breve
+
+- **Blocco per inattività**: in *Impostazioni* scegli i minuti e il PIN
+  (predefinito `4646`, `0` minuti disattiva). La cassa si copre da sola.
+- **Anti-doppio scan**: leggere lo stesso codice due volte in un secondo e mezzo
+  chiede conferma.
+- **I tre più amati**: in `/prodotti`, calcolati sugli scontrini veri (minimo due
+  negli ultimi 90 giorni).
+- **Ricerca tollerante**: i refusi trovano lo stesso il prodotto.
+- **Spesa solita**: in `/ilmioarket` i prodotti comprati almeno due volte.
+- **Buono regalo via email**: in *Buoni regalo* scrivi l'email del destinatario e
+  il codice parte subito.
+- **Esporta tutto**: dalla scheda *Cervello*, un file JSON con tutti i dati.
+- **Cancellazione cliente**: pulsante rosso in *Clienti*.
+
+---
+
 ## Supporto
 
 Problemi, licenze, upgrade di versione: **andonio2013@gmail.com**
